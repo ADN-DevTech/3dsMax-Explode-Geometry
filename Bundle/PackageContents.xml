@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage 
+	SchemaVersion="1.0" 
+	AutodeskProduct="3ds Max" 
+	Name="ADN-ExplodeGeometry" 
+	DescriptionLong="This is a plugin to explode geometry into faces." 
+	Description="3ds Max Explode geometry plug-in." 
+	AppVersion="1.0.0" 
+	FriendlyVersion="1.0.0" 
+	ProductType="Application" 
+	HelpFile="./Contents/help/index.html" 
+	SupportedLocales="Enu" 
+	AppNameSpace="appstore.exchange.autodesk.com" 
+	Author="Autodesk" 
+	ProductCode="*" 
+	UpgradeCode="{F23E890E-BE37-4d6b-8D1B-04965BD12916}">
+
+	<CompanyDetails Name="Autodesk"
+		Phone=" "
+		Url="http://www.autodesk.com"
+		Email="labs.plugins@autodesk.com" />
+
+	<RuntimeRequirements OS="Win32|Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2013" SeriesMax="2014" />
+		
+	<Components Description="macroscripts parts">
+		<RuntimeRequirements OS="Win32|Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2013" SeriesMax="2014" />
+		<ComponentEntry AppName="ADNExplodeGeometry" Version="1.0.0" ModuleName="./Contents/macroscripts/ADNExplodeGeometry.mcr" />
+	</Components>
+
+	<Components Description="post-start-up scripts parts">
+		<RuntimeRequirements OS="Win32|Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2013" SeriesMax="2014" />
+		<ComponentEntry AppName="ADNExplodeGeometry" Version="1.0.0" ModuleName="./Contents/Post-Start-Up_Scripts/ADNGeometryExplodeSetupMenu.ms" AppDescription="Setup Menu to execute tool" />
+	</Components>
+
+	<Components Description="assemblies parts">
+		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2013" SeriesMax="2014" />
+		<ComponentEntry AppName="ADNExplodeGeometry" Version="1.0.0" ModuleName="./Contents/ManagedAssemblies/ADNExplodeGeometry.dll" AppDescription="The ADNGeomtryExplode managed assembly module" />
+	</Components>
+  
+</ApplicationPackage>

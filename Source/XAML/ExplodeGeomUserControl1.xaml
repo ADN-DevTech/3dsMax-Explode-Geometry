@@ -1,0 +1,41 @@
+<UserControl x:Class="ADNExplodeGeometry.ExplodeGeomUserControl1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    mc:Ignorable="d"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:localControls="clr-namespace:NumericEntry"
+    xmlns:MaxWPFControls="clr-namespace:WPFCustomControls;assembly=WPFCustomControls"             
+    Height="400" Width="426">
+	<UserControl.Resources>
+		<BooleanToVisibilityConverter x:Key="VisConverter" />
+	</UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="#FF434242" Height="400" Width="428">
+        <GroupBox x:Name="m_gbExplodeTypes" Header="Explode Operations" Height="93" Margin="8,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+        <RadioButton x:Name="m_rbTriangles" Content="Explode to Triangles" HorizontalAlignment="Left" Height="25.334" Margin="30.667,52.679,0,0" VerticalAlignment="Top" Width="133.999" GroupName="Convert" Checked="m_rbTriangles_Checked" />
+        <RadioButton x:Name="m_rbPolygons" Content="Explode to Polygons" HorizontalAlignment="Left" Height="21.333" Margin="30.667,27.321,0,0" VerticalAlignment="Top" Width="133.999" GroupName="Convert" IsChecked="True" Checked="m_rbPolygons_Checked" />
+        <GroupBox x:Name="m_gbExplodeOptions" Header="Explode Options" Margin="8,99,8,0" Height="145" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+        <CheckBox x:Name="m_cbConvertTri" Content="Attempt Conversion to TriObject" Height="25.334" Margin="182.667,52.679,22,0" VerticalAlignment="Top" IsChecked="True" IsEnabled="False"/>
+        <CheckBox x:Name="m_cbConvertPoly" Content="Attempt Conversion to PolyMesh" Height="25.334" Margin="182.667,27.321,22,0" VerticalAlignment="Top" IsChecked="True"/>
+        <CheckBox x:Name="m_cbAddShell" Content="Add Shell Modifier" Margin="22.669,122,0,257" HorizontalAlignment="Left" Width="151.997" Unchecked="m_cbAddShell_Checked" Checked="m_cbAddShell_Checked" IsChecked="True" />
+        <localControls:NumericEntryControl x:Name="m_numOffset" Height="20.667" Width="90" Margin="300,120,35,0" VerticalAlignment="Top" Value="0.1"/>
+        <Label x:Name="m_lblNumOffset" Content="Shell Offset:" Height="24.374" Margin="0,117,136,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="73.334"/>
+        <CheckBox x:Name="m_cbAddEditMesh" Content="Add Edit Mesh Modifier" Margin="22.669,144,0,0" Height="20.667" VerticalAlignment="Top" HorizontalAlignment="Left" Width="151.997" IsChecked="True"/>
+        <CheckBox x:Name="m_cbCollapseStack" Content="Collapse Modifier Stack" Margin="22.669,168,0,0" Height="20.667" VerticalAlignment="Top" HorizontalAlignment="Left" Width="151.997" IsChecked="True"/>
+        <CheckBox x:Name="m_cbCenterPivot" Content="Center Pivot" Margin="22.669,191,0,0" Height="20.667" VerticalAlignment="Top" HorizontalAlignment="Left" Width="151.997" IsChecked="True"/>
+        <CheckBox x:Name="m_cbDeleteOriginal" Content="Delete Original" Margin="22.669,212,0,0" Height="20.667" VerticalAlignment="Top" HorizontalAlignment="Left" Width="151.997" IsChecked="True"/>
+        <Button x:Name="m_btnExplodeIt" Content="Explode Selected Objects" Height="23" HorizontalAlignment="Left" Margin="248,252,0,0" VerticalAlignment="Top" Width="165" Click="m_btnExplodeIt_Click" />
+        <!--<Button x:Name="m_btnCancel" Content="Cancel" Height="22" HorizontalAlignment="Left" Margin="112,250,0,0" VerticalAlignment="Top" Width="122" Click="m_btnCancel_Click" />-->
+        <Grid x:Name="m_pnlProgressPanel" HorizontalAlignment="Left" Margin="1,277,0,3" Visibility="Hidden">
+            <ProgressBar Name="m_progBar" Height="27" HorizontalAlignment="Left" Margin="21,42,0,0" VerticalAlignment="Top" Width="378" />
+            <Label Name="m_lblLabelProNode" Content="Processing Node:" Height="28" HorizontalAlignment="Left" Margin="18,12,0,0"  VerticalAlignment="Top" Width="107" />
+            <Label Name="m_lblNodeName" Content="Node Name" Height="28" HorizontalAlignment="Left" Margin="130,12,0,0" VerticalAlignment="Top" Width="155" />
+            <Label Name="m_lblLabelNode" Content="Node:" Height="28" HorizontalAlignment="Left" Margin="275,12,0,0" VerticalAlignment="Top" Width="41" />
+            <Label Name="m_lblCurrNode" Content="num" Height="28" Margin="315,12,70,0" VerticalAlignment="Top" />
+            <Label Name="m_lblLabelOf" Content="of" Height="28" HorizontalAlignment="Left" Margin="347,12,0,0" VerticalAlignment="Top" Width="29" />
+            <Label Name="m_lblTotNode" Content="tot" Height="28" HorizontalAlignment="Left" Margin="362,12,0,0" VerticalAlignment="Top" Width="36" />
+            <Label Name="m_lblLabelEscape" Content="Please press Escape to cancel..." Height="28" HorizontalAlignment="Left" Margin="18,79,0,0"  VerticalAlignment="Top" Width="306" />
+            <!-- <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="321,102,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" IsCancel="True" />-->
+        </Grid>
+    </Grid>
+</UserControl>
