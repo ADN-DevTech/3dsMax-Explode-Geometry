@@ -43,7 +43,7 @@ namespace ADNExplodeGeometry
 {
     /// <summary>
     /// Utility functions to do all the explode work.
-    /// They are setup so that they could also be used indiviually called directly from MAXScript.
+    /// They are setup so that they could also be used individually called directly from MAXScript.
     /// </summary>
     static public class ADN_Utility
     {
@@ -109,8 +109,8 @@ namespace ADNExplodeGeometry
                 for (int i = 0; i < nmods; i++)
                 {
                     IModifier mod = dobj.GetModifier(i);
-                    // have to compare ClassID Parts A and B seperately. The equals operator is not 
-                    // implemented so it will return false even when they are euqal.
+                    // have to compare ClassID Parts A and B separately. The equals operator is not 
+                    // implemented so it will return false even when they are equal.
                     if ((mod.ClassID.PartA == cid.PartA) && (mod.ClassID.PartB == cid.PartB))
                         return mod;
                 }
@@ -224,7 +224,7 @@ namespace ADNExplodeGeometry
         /// <param name="centerPivot"> Input whether to center the pivot on each new face. </param>
         /// <returns> Returns 1 if successful or -1 if not. </returns>
         static public int ConvertToTriangleFaces(uint nodeHandle,
-                                                bool convertToTri = true, // C# now support default parameters
+                                                bool convertToTri = true, // C# now supports default parameters
                                                 bool addShell = true,
                                                 float shell = 0.1f,
                                                 bool addEditMesh = true,
@@ -369,7 +369,7 @@ namespace ADNExplodeGeometry
         /// <param name="centerPivot"> Input whether to center the pivot on each new face. </param>
         /// <returns> Returns 1 if successful or -1 if not. </returns>
         static public int ConvertToPolygonFaces(uint nodeHandle,
-                                                bool convertToPoly = true, // C# now support default parameters
+                                                bool convertToPoly = true, // C# now supports default parameters
                                                 bool addShell = true,
                                                 float shell = 0.1f,
                                                 bool addEditMesh = true,

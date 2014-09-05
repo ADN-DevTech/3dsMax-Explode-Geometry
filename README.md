@@ -24,6 +24,11 @@ Collapse Modifier Stack -- will collapse the stack down to become an editable me
 Center Pivot -- will center the pivot on each resulting face.
 Delete Original -- will remove each original node that was used to create the new faces.
 
+Python Version
+==============
+A port of this plugin that implements the basic functionality is available in the Python folder called explode_geometry.py.  This
+script requires the MaxPlus Python feature, first introduced in 3ds Max 2014 Extension 1.
+
 Additional Information
 =================
 This plug-in was written by Kevin Vandecar - Autodesk Developer Network.
