@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ADNExplodeGeometry</RootNamespace>
     <AssemblyName>ADNExplodeGeometry</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -38,36 +38,38 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>$(ADSK_3DSMAX_x64_2013)\bin\assemblies\</OutputPath>
+    <OutputPath>$(ADSK_3DSMAX_x64_2016)\bin\assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>$(ADSK_3DSMAX_x64_2013)\bin\assemblies\</OutputPath>
+    <OutputPath>$(ADSK_3DSMAX_x64_2016)\bin\assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autodesk.Max">
-      <HintPath>$(ADSK_3DSMAX_x64_2013)\Autodesk.Max.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2016)\Autodesk.Max.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="CSharpUtilities">
-      <HintPath>$(ADSK_3DSMAX_x64_2013)\CSharpUtilities.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2016)\CSharpUtilities.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ManagedServices">
-      <HintPath>$(ADSK_3DSMAX_x64_2013)\ManagedServices.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2016)\ManagedServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MaxCustomControls">
-      <HintPath>$(ADSK_3DSMAX_x64_2013)\MaxCustomControls.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2016)\MaxCustomControls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore">
@@ -95,14 +97,14 @@
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="UiViewModels">
-      <HintPath>$(ADSK_3DSMAX_x64_2013)\UiViewModels.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2016)\UiViewModels.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="WPFCustomControls">
-      <HintPath>$(ADSK_3DSMAX_x64_2013)\WPFCustomControls.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2016)\WPFCustomControls.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
