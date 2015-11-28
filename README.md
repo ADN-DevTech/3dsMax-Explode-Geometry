@@ -34,6 +34,7 @@ Additional Information
 =================
 This plug-in was written by Kevin Vandecar - Autodesk Developer Network.
 The idea was provided by Louis Marcoux - Autodesk.
+The python version was developed by Drew Avis - Autodesk to show similar functionality.
 
 Known Issues
 ===========
