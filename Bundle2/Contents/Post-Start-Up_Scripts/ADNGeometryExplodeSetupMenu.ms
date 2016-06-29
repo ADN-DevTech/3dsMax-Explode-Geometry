@@ -6,8 +6,8 @@
     -- MUST keep the value the SAME for all apps
     if menuMan.registerMenuContext 0x3923df2 then
     (
-        -- probably can take these out, but it shows that it is called only when needed...
-        print "ADN-Explode geomtry: Creating Exchange Store Menu"
+        -- can take these out, but it shows that it is called only when needed...
+        -- print "ADN-Explode geomtry: Creating Exchange Store Menu"
 
         -- Get the main menu bar
         local mainMenuBar = menuMan.getMainMenuBar()
@@ -30,8 +30,8 @@
     local stringMacroScriptCategory = "ADN Samples"
     if menuMan.registerMenuContext 0x7b244316 then
     (
-        -- probably can take these out, but it shows that it is called only when needed...
-        print "Creating ADN Explode Geometry Sub-Menu"
+        -- can take these out, but it shows that it is called only when needed...
+        -- print "Creating ADN Explode Geometry Sub-Menu"
 
         -- this should always succeed because above
         local exchangeMenu = menuMan.findMenu stringExhangeStoreDefaultMenu

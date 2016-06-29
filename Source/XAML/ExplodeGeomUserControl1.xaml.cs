@@ -59,20 +59,22 @@ namespace ADNExplodeGeometry
             IInterface14 ip = global.COREInterface14;
 
             IIColorManager cm = global.ColorManager;
-            System.Drawing.Color dcolBack = cm.GetColor(Autodesk.Max.GuiColors.Background);
+            System.Drawing.Color dcolBack = cm.GetColor(Autodesk.Max.GuiColors.Background, Autodesk.Max.IColorManager.State.Normal);
 
-            // due to a bug in the 3ds Max .NET API, we have to reverse the R and B values to assign color properly. 
-            // The Autodesk.Max assembly maps them incorrectly
+            // due to a bug in the 3ds Max .NET API before 2017, you would have to reverse the R and B values to assign color properly. 
+            // The Autodesk.Max assembly mapped them incorrectly
+            // pre 2017: System.Windows.Media.Color mcolorBack = System.Windows.Media.Color.FromRgb(dcolBack.B, dcolBack.G, dcolBack.R);
 
-            // Get current background color and mnatch our dialog to it
-            System.Windows.Media.Color mcolorBack = System.Windows.Media.Color.FromRgb(dcolBack.B, dcolBack.G, dcolBack.R);
+            // Get current background color and match our dialog to it
+            System.Windows.Media.Color mcolorBack = System.Windows.Media.Color.FromRgb(dcolBack.R, dcolBack.G, dcolBack.B);
             Brush colorBack = new SolidColorBrush(mcolorBack);
             // Note, if you want just a fixed color, you can comment this out and use the XAML defined value.
             LayoutRoot.Background = colorBack;
 
             // Get current text color and match our dialog to it.
-            System.Drawing.Color dcolText = cm.GetColor(Autodesk.Max.GuiColors.Text);
-            System.Windows.Media.Color mcolorText = System.Windows.Media.Color.FromRgb(dcolText.B, dcolText.G, dcolText.R);
+            System.Drawing.Color dcolText = cm.GetColor(Autodesk.Max.GuiColors.Text, Autodesk.Max.IColorManager.State.Normal);
+            // pre 2017: System.Windows.Media.Color mcolorText = System.Windows.Media.Color.FromRgb(dcolText.B, dcolText.G, dcolText.R);
+            System.Windows.Media.Color mcolorText = System.Windows.Media.Color.FromRgb(dcolText.R, dcolText.G, dcolText.B);
             Brush colorText = new SolidColorBrush(mcolorText);
             
             // To use pure white, we can just set a system brush.

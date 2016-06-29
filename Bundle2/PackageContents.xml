@@ -5,8 +5,8 @@
 	Name="ADN-ExplodeGeometry" 
 	DescriptionLong="This is a plugin to explode geometry into faces." 
 	Description="3ds Max Explode geometry plug-in." 
-	AppVersion="2.0.0" 
-	FriendlyVersion="2.0.0" 
+	AppVersion="2.1.0" 
+	FriendlyVersion="2.1.0" 
 	ProductType="Application" 
 	HelpFile="./Contents/help/index.html" 
 	SupportedLocales="Enu" 
@@ -20,21 +20,25 @@
 		Url="http://www.autodesk.com"
 		Email="labs.plugins@autodesk.com" />
 
-	<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2015" />
+	<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2017" />
 		
 	<Components Description="macroscripts parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2015" />
-		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.0.0" ModuleName="./Contents/macroscripts/ADNExplodeGeometry.mcr" />
+		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2017" />
+		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/macroscripts/ADNExplodeGeometry.mcr" />
 	</Components>
 
 	<Components Description="post-start-up scripts parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2015" />
-		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.0.0" ModuleName="./Contents/Post-Start-Up_Scripts/ADNGeometryExplodeSetupMenu.ms" AppDescription="Setup Menu to execute tool" />
+		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2017" />
+		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/Post-Start-Up_Scripts/ADNGeometryExplodeSetupMenu.ms" AppDescription="Setup Menu to execute tool" />
 	</Components>
 
 	<Components Description="assemblies parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2015" />
-		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.0.0" ModuleName="./Contents/ManagedAssemblies/ADNExplodeGeometry.dll" AppDescription="The ADNGeomtryExplode managed assembly module" />
+		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2016" />
+		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/ManagedAssemblies/2015/ADNExplodeGeometry.dll" AppDescription="The ADNGeomtryExplode managed assembly module" />
+	</Components>
+	<Components Description="assemblies parts">
+		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2017" SeriesMax="2017" />
+		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/ManagedAssemblies/2017/ADNExplodeGeometry.dll" AppDescription="The ADNGeomtryExplode managed assembly module" />
 	</Components>
   
 </ApplicationPackage>

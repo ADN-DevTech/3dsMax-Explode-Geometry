@@ -81,6 +81,8 @@ Release History
 ---------------
 
 1.0    Original release                     (February 1, 2013)
+2.0    Update release to incude UI color matching and now suports 3ds Max (Design) 2015 and 2016. (December 1, 2015)
+2.1    Update release to support 2017, and minor code changes to support bug fixing in the Autodesk.Max.DLL assembly. (July 1, 2016)
 
 (C) Copyright 2012 by Autodesk, Inc. 
 
