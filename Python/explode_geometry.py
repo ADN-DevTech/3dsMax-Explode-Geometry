@@ -94,7 +94,7 @@ class Form(QtGui.QWidget):
     def __init__(self, parent=None):   
         super (Form,self).__init__(parent)        
 
-        self.resize(250, 100)
+        self.resize(250, 300)
         self.setWindowTitle('Window')
         _GCProtector.widgets.append(self)
         
@@ -188,6 +188,8 @@ class Form(QtGui.QWidget):
 def main():        
     #MaxPlus.FileManager.Reset(True)
     form = Form()
+    form.setParent(MaxPlus.GetQMaxWindow())
+    MaxPlus.MakeQWidgetDockable(form,4)
     form.show()   
 
     
