@@ -15,9 +15,11 @@ You can load the provided script directly or make use of included MaxConnector (
 
 ## Example of use with PyCharm:
 Load the project into PyCharm:
+
 ![](assets/pyCharm_01.png)
 
 Select to create a new Run configuration
+
 ![](assets/pyCharm_01b.png)
 
 In new window:
@@ -26,6 +28,7 @@ In new window:
 2. in script path put the path to ```MaxConnector\runner.py```
 3. in script parameter add ```-f``` and path to the explode geometry script
 4. make sure that the Working directory is the same as folder path to ```runner.py```
+
 ![](assets/pyCharm_02.png)
 
 
