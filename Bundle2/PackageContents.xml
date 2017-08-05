@@ -20,7 +20,7 @@
 		Url="http://www.autodesk.com"
 		Email="labs.plugins@autodesk.com" />
 
-	<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2017" />
+	<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2018" />
 		
 	<Components Description="macroscripts parts">
 		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2017" />
@@ -37,7 +37,7 @@
 		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/ManagedAssemblies/2015/ADNExplodeGeometry.dll" AppDescription="The ADNGeomtryExplode managed assembly module" />
 	</Components>
 	<Components Description="assemblies parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2017" SeriesMax="2017" />
+		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2017" SeriesMax="2018" />
 		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/ManagedAssemblies/2017/ADNExplodeGeometry.dll" AppDescription="The ADNGeomtryExplode managed assembly module" />
 	</Components>
   
