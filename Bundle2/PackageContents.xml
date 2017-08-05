@@ -23,12 +23,12 @@
 	<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2018" />
 		
 	<Components Description="macroscripts parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2017" />
+		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2018" />
 		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/macroscripts/ADNExplodeGeometry.mcr" />
 	</Components>
 
 	<Components Description="post-start-up scripts parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2017" />
+		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2018" />
 		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/Post-Start-Up_Scripts/ADNGeometryExplodeSetupMenu.ms" AppDescription="Setup Menu to execute tool" />
 	</Components>
 
