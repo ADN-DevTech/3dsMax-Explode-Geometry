@@ -409,7 +409,7 @@ namespace ADNExplodeGeometry
                     ITriObject triOriginal = objOriginal as ITriObject;
                     polyObj.Mesh.AddTri(triOriginal.Mesh);
                     polyObj.Mesh.FillInMesh();
-                    polyObj.Mesh.EliminateBadVerts(0);
+                    polyObj.Mesh.EliminateBadVerts(0, false);
                     polyObj.Mesh.MakePolyMesh(0, true);
                 }
                 else if (polyObject == null)

@@ -299,7 +299,7 @@ namespace ADNExplodeGeometry
                     // now we need to start at the top to delete the original nodes. 
                     if (deleteNode)
                     {
-                        IINodeTab tabNodes = global.INodeTabNS.Create();
+                        IINodeTab tabNodes = global.INodeTab.Create();
                         ip.GetSelNodeTab(tabNodes);
                         if (tabNodes != null)
                             ip.DeleteNodes(tabNodes, true, true, false);

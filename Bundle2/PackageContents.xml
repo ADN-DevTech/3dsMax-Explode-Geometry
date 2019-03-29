@@ -20,25 +20,30 @@
 		Url="http://www.autodesk.com"
 		Email="labs.plugins@autodesk.com" />
 
-	<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2018" />
-		
+	<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2017" SeriesMax="2020" />
+	
 	<Components Description="macroscripts parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2018" />
+		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2017" SeriesMax="2020" />
 		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/macroscripts/ADNExplodeGeometry.mcr" />
 	</Components>
 
 	<Components Description="post-start-up scripts parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2018" />
+		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2017" SeriesMax="2020" />
 		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/Post-Start-Up_Scripts/ADNGeometryExplodeSetupMenu.ms" AppDescription="Setup Menu to execute tool" />
 	</Components>
 
 	<Components Description="assemblies parts">
-		<RuntimeRequirements OS="Win64" Platform="3ds Max|3ds Max Design" SeriesMin="2015" SeriesMax="2016" />
-		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/ManagedAssemblies/2015/ADNExplodeGeometry.dll" AppDescription="The ADNGeomtryExplode managed assembly module" />
-	</Components>
-	<Components Description="assemblies parts">
 		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2017" SeriesMax="2018" />
-		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/ManagedAssemblies/2017/ADNExplodeGeometry.dll" AppDescription="The ADNGeomtryExplode managed assembly module" />
+		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/ManagedAssemblies/2017/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
 	</Components>
   
+	<Components Description="assemblies parts">
+		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2019" SeriesMax="2019" />
+		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/ManagedAssemblies/2019/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
+	</Components>
+
+	<Components Description="assemblies parts">
+		<RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2020" SeriesMax="2020" />
+		<ComponentEntry AppName="ADNExplodeGeometry" Version="2.1.0" ModuleName="./Contents/ManagedAssemblies/2020/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
+	</Components>
 </ApplicationPackage>
