@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ADNExplodeGeometry</RootNamespace>
     <AssemblyName>ADNExplodeGeometry</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -54,19 +54,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autodesk.Max">
-      <HintPath>$(ADSK_3DSMAX_x64_2020)\Autodesk.Max.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2022)\Autodesk.Max.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="CSharpUtilities">
-      <HintPath>$(ADSK_3DSMAX_x64_2020)\CSharpUtilities.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2022)\CSharpUtilities.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ManagedServices">
-      <HintPath>$(ADSK_3DSMAX_x64_2020)\ManagedServices.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2022)\ManagedServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MaxCustomControls">
-      <HintPath>$(ADSK_3DSMAX_x64_2020)\MaxCustomControls.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2022)\MaxCustomControls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore">
@@ -101,7 +101,7 @@
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="WPFCustomControls">
-      <HintPath>$(ADSK_3DSMAX_x64_2020)\WPFCustomControls.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2022)\WPFCustomControls.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -146,6 +146,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "$(PROGRAMDATA)\Autodesk\ApplicationPlugins\ADN-ExplodeGeometry.bundle\Contents\ManagedAssemblies\2022"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
