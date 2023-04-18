@@ -31,9 +31,9 @@ script requires the MaxPlus Python feature, first introduced in 3ds Max 2014 Ext
 
 Additional Information
 =================
-This plug-in was written by Kevin Vandecar - Autodesk Developer Network.
-The idea was provided by Louis Marcoux - Autodesk.
-The python version was developed by Drew Avis - Autodesk to show similar functionality.
+This plug-in was written by Kevin Vandecar - Autodesk Developer Network.  
+The idea was provided by Louis Marcoux - Autodesk.  
+The python version was developed by Drew Avis - Autodesk to show similar functionality.  
 
 Known Issues
 ===========
@@ -42,13 +42,14 @@ to complete, or even cause an error your system if it runs out of memory.
 
 Contact
 ======
-For more information on developing with 3ds Max, please visit the 3ds Max Developer Center.
+For more information on developing with 3ds Max, please visit the 3ds Max Developer Center.  
 http://www.autodesk.com/develop3dsmax
 
 Version
 =======
-1.0 - Initial Release
-2.0 - Adds support for 3ds Max UI color scheme, and also now supports both 3ds Max and 3ds Max Design.
-2.3 - Updates the DLL binary and other aspects of the App Bundle format to be supporting 2020, 2021, 2022, and 2023.
-2.5 - Updates the sample code to support Mesh changes in the 2024 SDK. 
+1.0 - Initial Release  
+2.0 - Adds support for 3ds Max UI color scheme, and also now supports both 3ds Max and 3ds Max Design.  
+2.3 - Updates the DLL binary and other aspects of the App Bundle format to be supporting 2020, 2021, 2022, and 2023.  
+2.5 - Updates the sample code to support Mesh changes in the 2024 SDK.  
+
 
