@@ -3,7 +3,7 @@
 
 3ds Max Explode Geometry plug-in
 
-This sample code is in .NET for 3ds Max SDK, and is also available for download from the Autodesk App Store as a sinple application.
+This sample code is in .NET for 3ds Max SDK, and is also available for download from the Autodesk App Store as a simple application.
 
 
 Getting Started
