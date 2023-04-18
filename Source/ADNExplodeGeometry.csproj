@@ -55,19 +55,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autodesk.Max">
-      <HintPath>$(ADSK_3DSMAX_x64_2023)\Autodesk.Max.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2024)\Autodesk.Max.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="CSharpUtilities">
-      <HintPath>$(ADSK_3DSMAX_x64_2023)\CSharpUtilities.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2024)\CSharpUtilities.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ManagedServices">
-      <HintPath>$(ADSK_3DSMAX_x64_2023)\ManagedServices.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2024)\ManagedServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MaxCustomControls">
-      <HintPath>$(ADSK_3DSMAX_x64_2023)\MaxCustomControls.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2024)\MaxCustomControls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore">
@@ -95,14 +95,14 @@
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="UiViewModels">
-      <HintPath>$(ADSK_3DSMAX_x64_2023)\UiViewModels.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2024)\UiViewModels.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="WPFCustomControls">
-      <HintPath>$(ADSK_3DSMAX_x64_2023)\WPFCustomControls.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2024)\WPFCustomControls.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

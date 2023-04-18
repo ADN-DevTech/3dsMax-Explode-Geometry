@@ -50,3 +50,5 @@ Version
 1.0 - Initial Release
 2.0 - Adds support for 3ds Max UI color scheme, and also now supports both 3ds Max and 3ds Max Design.
 2.3 - Updates the DLL binary and other aspects of the App Bundle format to be supporting 2020, 2021, 2022, and 2023.
+2.5 - Updates the sample code to support Mesh changes in the 2024 SDK. 
+

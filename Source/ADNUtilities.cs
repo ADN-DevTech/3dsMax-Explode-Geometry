@@ -272,9 +272,8 @@ namespace ADNExplodeGeometry
 
                 // We can grab the faces as a List and iterate them in .NET API.
                 IMesh mesh = triOriginal.Mesh;
-                IList<IFace> faces = triOriginal.Mesh.Faces;
-                
-                int nNumFaces = faces.Count;
+                                
+                int nNumFaces = mesh.NumFaces;
                 if (m_bUsingProgress)
                 {
                     m_ctrlProgress.PB_ProgressMaxNum = nNumFaces;
@@ -282,8 +281,10 @@ namespace ADNExplodeGeometry
 
                 ADN_UserBreakCheck checkUserBreak = new ADN_UserBreakCheck();
                 int count = 0;
-                foreach (IFace face in faces)
+                for (int nfaceIndex = 0; nfaceIndex < nNumFaces; nfaceIndex++)
                 {
+                    IFace face = mesh.GetFace(nfaceIndex);
+
                     if (checkUserBreak.Check() == true)
                     {
                         return -1;
@@ -313,9 +314,9 @@ namespace ADNExplodeGeometry
                     triNewFace.Mesh.SetNumVerts(face.V.Count(), false, false);
 
                     // Finish setting up the face (always face '0' because there will only be one per object).
-                    triNewFace.Mesh.Faces[0].SetVerts(0, 1, 2);
-                    triNewFace.Mesh.Faces[0].SetEdgeVisFlags(EdgeVisibility.Vis, EdgeVisibility.Vis, EdgeVisibility.Vis);
-                    triNewFace.Mesh.Faces[0].SmGroup = 2;
+                    triNewFace.Mesh.GetFace(0).SetVerts(0, 1, 2);
+                    triNewFace.Mesh.GetFace(0).SetEdgeVisFlags(EdgeVisibility.Vis, EdgeVisibility.Vis, EdgeVisibility.Vis);
+                    triNewFace.Mesh.GetFace(0).SmGroup = 2;
 
                     // Now, for each vertex, get the old face's points and store into new.
                     for (int i = 0; i < face.V.Count(); i++)

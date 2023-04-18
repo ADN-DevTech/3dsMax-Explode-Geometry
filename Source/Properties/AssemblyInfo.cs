@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Autodesk Developer Network Samples")]
 [assembly: AssemblyProduct("SamplePlugin")]
-[assembly: AssemblyCopyright("Copyright © Autodesk Developer Network Samples 2015")]
+[assembly: AssemblyCopyright("Copyright © Autodesk Developer Network Samples 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
