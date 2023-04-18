@@ -37,6 +37,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Diagnostics; // Useful for debugging
+
 using Autodesk.Max;
 
 namespace ADNExplodeGeometry
@@ -309,8 +311,9 @@ namespace ADNExplodeGeometry
 
                 ip.RedrawViews(0, RedrawFlags.Normal, null);
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.Print(ex.Message);
                 global.TheHold.Cancel();
             }
 
