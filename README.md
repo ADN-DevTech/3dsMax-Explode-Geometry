@@ -3,8 +3,7 @@
 
 3ds Max Explode Geometry plug-in
 
-Available for download from the Autodesk App Store with installer for 3ds Max 2014 and seperately for 2015 and 2016.
-Due to a bug in 3ds Max 2014, there are two seperate bundles to allow them to exist side-by-side.
+This sample code is in .NET for 3ds Max SDK, and is also available for download from the Autodesk App Store as a sinple application.
 
 
 Getting Started
@@ -50,3 +49,4 @@ Version
 =======
 1.0 - Initial Release
 2.0 - Adds support for 3ds Max UI color scheme, and also now supports both 3ds Max and 3ds Max Design.
+2.3 - Updates the DLL binary and other aspects of the App Bundle format to be supporting 2020, 2021, 2022, and 2023.
