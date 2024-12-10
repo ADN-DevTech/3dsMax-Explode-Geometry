@@ -98,6 +98,8 @@ namespace ADNExplodeGeometry
 
         public override void CustomExecute(object parameter)
         {
+            Console.WriteLine("Custom Execute");
+
             try
             {
                 IGlobal global = Autodesk.Max.GlobalInterface.Instance;
@@ -106,10 +108,12 @@ namespace ADNExplodeGeometry
                 int nNumSelNodes = ip.SelNodeCount;
                 if (nNumSelNodes <= 0)
                 {
+                    Console.WriteLine("1");
                     ip.PushPrompt("No nodes are selected. Please select at least one node to convert, before running the command.");
                     return;
                 }
 
+                Console.WriteLine("2");
                 System.Windows.Window dialog = new System.Windows.Window();
                 dialog.Title = "Explode It!";
                 dialog.SizeToContent = System.Windows.SizeToContent.WidthAndHeight;
