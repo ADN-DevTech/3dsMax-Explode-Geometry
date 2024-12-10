@@ -1,122 +1,320 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/TR/REC-html40" xml:lang="en" dir="ltr" class="js">
-<head>
-<meta http-equiv=Content-Type content="text/html; charset=utf-8">
-<title>Explode Geometry for 3ds Max</title>
-<meta name="description" content="This plug-in can be used to choose one or more nodes in the scene and create 'exploded' geometry." />
-</head>
+﻿<!DOCTYPE html>
+<html class=" js canvas canvastext no-touch hashchange history draganddrop rgba multiplebgs borderimage boxshadow textshadow cssgradients csstransitions sessionstorage" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<style> 
-html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, hr, pre, code, form, fieldset, legend, input, textarea, blockquote, table, th, td {
-  padding: 0;
-  margin: 0;
-}
-a{color:#1F5397;text-decoration:none}
-body {font-family:"Arial", "Helvetica", "sans-serif";font-size:12.0px;margin:15px}
-p {font-size:12.0px;line-height:16px;padding:0px;margin:5px 0px 5px 0px}
-ol {font-size:12.0px;line-height:16px;padding:0px;margin:5px 0px 5px 20px}
-h1 {font-size:22.0px;height="26px"}
-.separator-line {border-bottom;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#C3C3C3}
-h2 {font-size:16.0px;line-height:18px;height:16px;margin-bottom:3px;margin-top:15px}
-h3 {font-size:14.0px;line-height:16px;height:14px;margin-bottom:3px;margin-top:15px}
-#plugin-icon{float:left;width:94px;height:94px}
-#plugin-name{margin-left:94px}
-#plugin-description{margin-left:94px;margin-top:3px;margin-bottom:40px}
-#navigation{margin-bottom:10px;clear:both}
-.nav-link-spacer {margin:0px 5px 0px 5px}
-.command {margin-top:5px;margin-bottom:3px}
-.command.icon {float:left;width:34px;height:34px}
-.command.name {font-weight:bold;padding-top:4px;margin:0px 0px 0px 34px}
-.command.description {margin:0px 0px 0px 34px}
-.versionset {margin-bottom:5px}
-.version {float:left;width:50px}
-.versioninfo-bullet {margin-left:50px}
-.screenshots {}
-.clearboth {clear:both}
-.thumbnail {float:left; width:207px;margin: 0px 20px 0px 0px}
-.caption { font-weight:bold}
-</style>
-
-</head>
+    <title>Autodesk App Store -  Explode Geometry for 3ds Max help file</title><link rel="stylesheet" href="./Resources/appstore-combined.min.css"></head>
 <body>
+<div style="min-height: 658px;" id="main" class="detail-page helpdoc-page clearfix">
+    <div style="" id="content">
+        <div id="helpdoc-head">
+            <img id="helpdoc-head-icon" src="./Resources/resized_88de2886-31d9-4a4b-9139-dd56d378754f_Explode-Geometr.png" alt="Explode Geometry for 3ds Max">
+            <div id="helpdoc-head-description">
+                <h1 id="helpdoc-product-title">Explode Geometry for 3ds Max</h1>
+                
+                <div class="clear"></div>
+                <hr>
+                <div class="seller">Autodesk, Inc.</div>
+                <div class="description">This plug-in can be used to choose one or more nodes in the scene and create "exploded" geometry.</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div id="helpdoc-tag"><a href="#description" class="helpdoc-breadcrumb">Description</a>
+                 
+                <a href="#generalinfo" class="helpdoc-breadcrumb">General Usage Instructions</a>
+                <a href="#screensinfo" class="helpdoc-breadcrumb">Screenshots</a>
+                <a href="#commandinfo" class="helpdoc-breadcrumb">Commands</a>
+                <a href="#inunininfo" class="helpdoc-breadcrumb">Installation/Uninstallation</a>
+                <a href="#addinfo" class="helpdoc-breadcrumb">Additional Information</a>
+                <a href="#contactinfo" class="helpdoc-breadcrumb">Contact</a>
+                <a href="#versionhistoryinfo" class="">Version History</a>
+            <div class="clear"></div>
+        </div><div class="helpdoc-element description">
+            <div class="clear"></div>
+            <h1 id="description">Description</h1>
+            <div class="helpdoc-text"> 
 
-<div id="heading">
-	<div id="plugin-icon"><img width="83" height="84" src="Explode-Geometry2.png"></div>
-	<div id="plugin-name"><h1 class="separator-line">Explode Geometry for 3ds Max</h1></div>
-	<p id="plugin-description"><em>Explode Geometry</em><br />
-	    This plug-in can be used to choose one or more nodes in the scene and create 
-		"exploded" geometry. The exploded geometry is actually 3 or 4 sided faces and 
-		you have the options to add modifiers to enhance the finished geometry to your
-		needs.</p>
+<div class="description">
+<p>This plug-in can be used to choose one or more nodes in the scene and create 
+"exploded" geometry. The exploded geometry is actually 3 or 4 sided faces and 
+you have the options to add modifiers to enhance the finished geometry to your 
+needs.</p>
+<p>First select the nodes that you want to explode (you have an option to 
+maintain the original geometry if desired). From the UI element that you 
+assigned the plug-in action to, select it and a dialog will come up.</p>
+<p>Select the options, and then select "Explode Selected Geometry". A progress 
+bar will be displayed for long actions and you have the option to cancel.</p>
+<p>You can choose to create three or four sided objects as a result of the 
+explode operation. Select the radio button of the desired operation. 
+Additionally you can toggle whether to try and convert the object’s mesh before 
+the conversion. By default it will try to convert, and if it cannot it will end. 
+If it can be converted (or is already of the correct type) then each node will 
+be exploded into the resulting individual faces.</p>
+<p>You can also control several other options.</p>
+<ul>
+  <li>Add Shell Modifier -- will add the modifier to the resulting face object, 
+  and apply the given shell offset.</li>
+  <li>Add Edit Mesh Modifier -- will add the modifier to the stack resulting in 
+  edit mesh operation being immediately available.</li>
+  <li>Collapse Modifier Stack -- will collapse the stack down to become an 
+  editable mesh as the end result.</li>
+  <li>Center Pivot -- will center the pivot on each resulting face.</li>
+  <li>Delete Original -- will remove each original node that was used to create 
+  the new faces.</li></ul></div></div></div>
+        
+        
+        <div class="helpdoc-element ">
+            <div class="clear"></div>
+            <h1 id="generalinfo">General Usage Instructions</h1>
+            <div class="helpdoc-text"><p>Choose the menu option from Exchange Store menu "Explode Selected Geometry"</p>
+<p>First select the nodes that you want to explode (you have an option 
+to maintain the original geometry if desired). From the UI element that 
+you assigned the plug-in action to, select it and a dialog will come up.</p>
+<p>Select the options, and then select "Explode Selected Geometry". You 
+can choose to create three or four sided objects as a result of the 
+explode operation.</p></div>
+        </div>
+
+        
+        <div id="helpdoc-element-screenshot" class="helpdoc-element ">
+            <div class="clear"></div>
+            <h1 id="screensinfo">Screenshots</h1>
+            <div>
+                        <div class="helpdoc-screenshot">
+                            <a rel="gallery" href="https://autodesk-exchange-apps-v-1-5-staging.s3.amazonaws.com/data/content/files/images/200809200515221/appstore.exchange.autodesk.com:explodegeometryfor3dsmax:en/original_786f007d-a5fa-4af3-9ae9-d4340bb87bbd_Explode-Geometry-ScreenCap.png" title="" data-mime="Image">
+                                <div class="helpdoc-img-container">
+                                    <span class="helper"></span>
+                                    <img class="helpdoc-screenshot-img" src="./Resources/original_786f007d-a5fa-4af3-9ae9-d4340bb87bbd_Explode-Geomet.png">
+                                    <span class="helper"></span>
+                                </div>
+                            </a>
+                            
+                        </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        
+        <div class="helpdoc-command helpdoc-element ">
+            <div class="clear"></div>
+            <h1 id="commandinfo">Commands</h1>
+            <div>
+                    <table class="helpdoc-table" id="helpdoc-table-command">
+                        <colgroup>
+                            <col style="width:150px">
+                            <col style="width:150px">
+                            <col style="width:530px">
+                        </colgroup>
+                        <tbody><tr>
+                            <th>Ribbon/Toolbar Icon</th>
+                            <th>Command</th>
+                            <th>Command Description</th>
+                        </tr>
+                        
+                            <tr>
+                                <td>
+                                    <div>
+                                        <img src="">
+                                    </div>
+                                </td>
+                                <td>
+                                    <p>
+                                        Explode Selected Geometry
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Choose the menu option from Exchange Store menu "Explode Selected Geometry"
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <img src="">
+                                    </div>
+                                </td>
+                                <td>
+                                    <p>
+                                        Explode Selected Geometry
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Choose the menu option from Exchange Store menu "Explode Selected Geometry"
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <img src="">
+                                    </div>
+                                </td>
+                                <td>
+                                    <p>
+                                        Explode Selected Geometry
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Choose the menu option from Exchange Store menu "Explode Selected Geometry"
+                                    </p>
+                                </td>
+                            </tr>
+                    </tbody></table>
+            </div>
+        </div>
+
+        
+        <div class="helpdoc-element ">
+            <div class="clear"></div>
+            <h1 id="inunininfo">Installation/Uninstallation</h1>
+            <div class="helpdoc-text"><p>The installer that ran when you
+ downloaded this plug-in from Autodesk App Store has already installed 
+the plug-in. You may need to restart the Autodesk product to activate 
+the plug-in.</p>
+<p>To uninstall this plug-in, click Control Panel &gt; Programs &gt; 
+Programs and Features (Windows 10/11) and uninstall as you 
+would any other application from your system.</p></div>
+        </div>
+
+        
+        <div class="helpdoc-element ">
+            <div class="clear"></div>
+            <h1 id="addinfo">Additional Information</h1>
+            <div class="helpdoc-text"><p>Contact author if you would like the sample code behind this utility.</p></div>
+			The sample source code is available in the following Github link:</br>
+			<a href="https://github.com/ADN-DevTech/3dsMax-Explode-Geometry" target="_blank">https://github.com/ADN-DevTech/3dsMax-Explode-Geometry</a>
+        </div>
+
+        
+        <div class="helpdoc-element helpdoc-element-hidden">
+            <div class="clear"></div>
+            <h1 id="knownissueinfo">Known Issues</h1>
+            <div class="helpdoc-text"></div>
+        </div>
+
+        
+        <div class="helpdoc-element ">
+            <div class="clear"></div>
+            <h1 id="contactinfo">Contact</h1>
+            <div>
+                
+                <div>
+                    <div class="">Company Name: Autodesk, Inc.</div>
+                    <div class="">Company URL: <a href="https://apps.autodesk.com/" target="_blank">https://apps.autodesk.com</a></div>
+                    <div class="">Support Contact: <a href="mailto:adn.apps@autodesk.com">adn.apps@autodesk.com</a></div>
+                </div>
+                
+                <div class="helpdoc-block ">
+                    <div class="clear"></div>
+                    <h1 id="authorinfo">Author/Company Information</h1>
+                    <div class="helpdoc-text">Autodesk, Inc.</div>
+                </div>
+                
+                <div class="helpdoc-block ">
+                    <div class="clear"></div>
+                    <h1 id="supportinfo">Support Information</h1>
+                    <div class="helpdoc-text"><p><a href="mailto:labs.plugins@autodesk.com" target="_blank">labs.plugins@autodesk.com</a></p></div>
+                </div>
+            </div>
+        </div>
+
+        
+
+            <div class="helpdoc-version helpdoc-element">
+                <div class="clear"></div>
+                <h1 id="versionhistoryinfo">Version History</h1>
+                <div>
+                    <table class="helpdoc-table" id="helpdoc-table-version">
+                        <colgroup>
+                            <col style="width:150px">
+                            <col style="width:680px">
+                        </colgroup>
+                        <tbody><tr>
+                            <th>Version Number</th>
+                            <th>Version Description</th>
+							</tr>
+							<tr>
+                                <td>
+                                    <p>
+                                        2.6.0
+                                    </p>
+                                </td>
+                                <td style="white-space: pre-wrap;">- Update release to support 2024</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        2.5.0
+                                    </p>
+                                </td>
+                                <td style="white-space: pre-wrap;">- Update release to support 2022. No change in version Number.</td>
+                            </tr>
+                            <tr>
+									  </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        2.3.0
+                                    </p>
+                                </td>
+                                <td style="white-space: pre-wrap;">- Update release to support 2021. No change in version Number.</td>
+                            </tr>
+                            <tr>
+								  </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        2.3.0
+                                    </p>
+                                </td>
+                                <td style="white-space: pre-wrap;">- Update release to support 2019 and 2020</td>
+                            </tr>
+                            <tr>
+							  </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        2.2
+                                    </p>
+                                </td>
+                                <td style="white-space: pre-wrap;">- Update release to support 2018</td>
+                            </tr>
+                            <tr>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        2.1
+                                    </p>
+                                </td>
+                                <td style="white-space: pre-wrap;">- Update release to support 2017, and minor code changes to support bug fixing in the Autodesk.Max.DLL assembly.</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        2.0
+                                    </p>
+                                </td>
+                                <td style="white-space: pre-wrap;"><p>Update release to include UI color matching and now supports 3ds Max(Design) 2015 and 2016.</p></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        1.0
+                                    </p>
+                                </td>
+                                <td style="white-space: pre-wrap;"><p>This is the initial release of the plugin.</p></td>
+                            </tr>
+                    </tbody></table>
+                </div>
+            </div>
+
+
+    </div>
 </div>
-
-<div id="navigation">Getting Started<span class="nav-link-spacer">|</span><a href="#Install">Install/Uninstall</a><span class="nav-link-spacer">|</span><a href="#AdditionalInfo">Additional Information</a><span class="nav-link-spacer">|</span><a href="#Contact">Contact</a><span class="nav-link-spacer">|</span><a class="navigation-link" href="#VersionHistory">Version History</a></p>
-
-<h2 id="GettingStarted" name="GettingStarted">Getting Started</h2>
-	<p>First select the nodes that you want to explode (you have an option to maintain
-	the original geometry if desired). From the UI element that you assigned the 
-	plug-in action to, select it and a dialog will come up.<br />
-	<br />
-	Select the options, and then select "Explode Selected Geometry". A progress bar 
-	will be displayed for long actions and you have the option to cancel.<br />
-	<br />
-	You can choose to create three or four sided objects as a result of the explode 
-	operation. Select the radio button of the desired operation. Additionally you 
-	can toggle whether to try and convert the object’s mesh before the conversion. 
-	By default it will try to convert, and if it cannot it will end. If it can be 
-	converted (or is already of the correct type) then each node will be exploded 
-	into the resulting individual faces.<br />
-	<br />
-	You can also control several other options.
-	<li>Add Shell Modifier -- will add the modifier to the resulting face object, and
-	apply the given shell offset.</li>
-	<li>Add Edit Mesh Modifier -- will add the modifier to the stack resulting in edit
-	mesh operation being immediately available.</li>
-	<li>Collapse Modifier Stack -- will collapse the stack down to become an editable
-	mesh as the end result.</li>
-	<li>Center Pivot -- will center the pivot on each resulting face.</li>
-	<li>Delete Original -- will remove each original node that was used to create 
-	the new faces.</li></p>
-
-<h2 id="Install" name="Install">Installation and Uninstallation</h2>
-	<p>The installer that ran when you downloaded this plug-in from 3ds Max Exchange 
-	has already installed the plug-in.</p>
-	<p>To uninstall this plug-in, simply rerun the installer by downloading it again 
-	from Exchange, and select the 'Uninstall' button, or you can uninstall it from 
-	'Control Panel\Programs\Programs and Features' (Windows 7) or Add/Remove 
-	Programs (Windows XP), just as you would uninstall any other application from 
-	your system.</p>
-	
-<h3>Available on</h3>
-	<table>
-		<tr><td><img height=48 src="win64.png" /></td></tr>
-		<tr><td align="center">Windows</td></tr>
-	<table>
-	
-<h2 id="AdditionalInfo" name="AdditionalInfo">Additional Information</h2>
-	<p>This plug-in was written by Kevin Vandecar - Autodesk Developer Network.<br />
-	The idea was provided by Louis Marcoux - Autodesk.</p>
-
-<h3>Known Issues</h3>
-	<p>There are no known limitations; however it is a very process intensive 
-	program. If you select many nodes with many faces it could take a long 
-	time to complete, or even cause an error your system if it runs out of memory.</p>
-
-<h2 id="Contact" name="Contact">Contact</h2>
-	<p>For more information on developing with 3ds Max, please visit the <a href="http://www.autodesk.com/develop3dsmax">3ds Max Developer Center</a>.</p>
-  	
-<h3>Support Information</h3>
-	<p>If you do encounter issues the please contact Autodesk either by email or phone, the details are listed below:<br />
-	<li>Phone: </li>
-	<li>Email: <a href="mailto:labs.plugins@autodesk.com">labs.plugins@autodesk.com</a></li>
-	</p>
-
-<h2 id="VersionHistory" name="VersionHistory">Version History</h2>
-	<div class="versionset">
-		<div class="version">1.0</div><div class="versioninfo-bullet">- Initial release</div>
-		<div class="version">2.0</div><div class="versioninfo-bullet">- Update release to incude UI color matching and now suports 3ds Max (Design) 2015 and 2016.</div>
-		<div class="version">2.1</div><div class="versioninfo-bullet">- Update release to support 2017, and minor code changes to support bug fixing in the Autodesk.Max.DLL assembly.</div>
-	</div>
-
-</body>
-</html>
+</body></html>
