@@ -26,8 +26,10 @@ Delete Original -- will remove each original node that was used to create the ne
 
 Python Version
 ==============
-A port of this plugin that implements the basic functionality is available in the Python folder called explode_geometry.py.  This
-script requires the MaxPlus Python feature, first introduced in 3ds Max 2014 Extension 1.
+A port of this plugin that implements the basic functionality is available in the Python folder called `explode_geometry.py`.  This
+script requires the `MaxPlus` Python feature for 3ds Max *2022* or earlier and `pymxs` for newer 3ds Max versions.
+
+> Limitation: Python samples not ported fully to `pymxs`.
 
 Additional Information
 =================
@@ -51,5 +53,6 @@ Version
 2.0 - Adds support for 3ds Max UI color scheme, and also now supports both 3ds Max and 3ds Max Design.  
 2.3 - Updates the DLL binary and other aspects of the App Bundle format to be supporting 2020, 2021, 2022, and 2023.  
 2.5 - Updates the sample code to support Mesh changes in the 2024 SDK.  
-
+2.6 - Support for 3ds Max 2025, ported to new menu system
+2.7 - Support for 3ds Max 2026, upgrade to .NET 8.0
 

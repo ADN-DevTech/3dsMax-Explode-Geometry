@@ -6,11 +6,8 @@ function menuCallback =
     local stringMacroScriptName = "ADNExplodeGeomMS" 
     local stringMacroScriptCategory = "ADN Samples"
 
-    print "menuCallback"
-
     local menuMgr = callbacks.notificationParam()
     local mainMenuBar = menuMgr.mainMenuBar
-
 
     -- Id of "Help" menu in main menu bar. Can be found in Menu editor -> right click on menu item -> copy item id
     local helpMenuId = "cee8f758-2199-411b-81e7-d3ff4a80d143"
@@ -24,5 +21,6 @@ function menuCallback =
     newSubMenu.CreateAction "9DE5BDB9-E47F-4614-BDF8-C331B9B38C70" 647394 permanentId
 )
 
+-- Register Callback to the #CuiRegisterMenus
 callbacks.removeScripts id:#adnExplodeGeomMenu
 callbacks.addScript #cuiRegisterMenus menuCallback id:#adnExplodeGeomMenu
