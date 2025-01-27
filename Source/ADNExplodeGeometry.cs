@@ -52,7 +52,7 @@ namespace ADNExplodeGeometry
     {
         public override string ActionText
         {
-            get { return InternalActionText; }
+            get { return CustomActionText; }
         }
 
         public override string Category
@@ -62,7 +62,9 @@ namespace ADNExplodeGeometry
 
         public override string InternalActionText
         {
-            get { return CustomActionText; }
+            // The internal action text shouldnot be localized, else the
+            // action ID will change, breaking menu/quad menus
+            get { return "Explode Selected Geometry"; }
         }
 
         public override string InternalCategory
@@ -138,4 +140,6 @@ namespace ADNExplodeGeometry
             }
         }
     }
+
+
 }

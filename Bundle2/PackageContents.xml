@@ -58,7 +58,7 @@
   <!-- Add ExplodeGeometry Assembly for 3ds Max 2026, .NET 8.0 -->
   <Components Description="assemblies parts">
     <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2026" SeriesMax="2026" />
-    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.7.0" ModuleName="./Contents/ManagedAssemblies/2026/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
+    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.7.0" ModuleName="./Contents/ManagedAssemblies/2026/net8.0-windows/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
   </Components>
 
 </ApplicationPackage>

@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "B:\\Repos\\ADSK\\3dsMax\\3dsMax-Explode-Geometry\\Source\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FE45C541-D216-4792-983D-3100BA9F3F4F}|ADNExplodeGeometry.csproj|b:\\repos\\adsk\\3dsmax\\3dsmax-explode-geometry\\source\\adnexplodegeometry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE45C541-D216-4792-983D-3100BA9F3F4F}|ADNExplodeGeometry.csproj|solutionrelative:adnexplodegeometry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE45C541-D216-4792-983D-3100BA9F3F4F}|ADNExplodeGeometry.csproj|b:\\repos\\adsk\\3dsmax\\3dsmax-explode-geometry\\source\\adnexplodegeometry.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{FE45C541-D216-4792-983D-3100BA9F3F4F}|ADNExplodeGeometry.csproj|solutionrelative:adnexplodegeometry.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ADNExplodeGeometry",
+              "DocumentMoniker": "B:\\Repos\\ADSK\\3dsMax\\3dsMax-Explode-Geometry\\Source\\ADNExplodeGeometry.csproj",
+              "RelativeDocumentMoniker": "ADNExplodeGeometry.csproj",
+              "ToolTip": "B:\\Repos\\ADSK\\3dsMax\\3dsMax-Explode-Geometry\\Source\\ADNExplodeGeometry.csproj",
+              "RelativeToolTip": "ADNExplodeGeometry.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-27T09:57:34.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ADNExplodeGeometry.cs",
+              "DocumentMoniker": "B:\\Repos\\ADSK\\3dsMax\\3dsMax-Explode-Geometry\\Source\\ADNExplodeGeometry.cs",
+              "RelativeDocumentMoniker": "ADNExplodeGeometry.cs",
+              "ToolTip": "B:\\Repos\\ADSK\\3dsMax\\3dsMax-Explode-Geometry\\Source\\ADNExplodeGeometry.cs",
+              "RelativeToolTip": "ADNExplodeGeometry.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAYwEIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T08:50:31.359Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

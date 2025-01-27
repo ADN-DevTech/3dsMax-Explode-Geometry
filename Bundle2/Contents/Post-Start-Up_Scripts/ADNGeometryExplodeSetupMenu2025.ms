@@ -17,8 +17,10 @@ function menuCallback =
     newSubMenu.CreateSeparator separatorId
 
     local permanentId = stringMacroScriptName + "`" + stringMacroScriptCategory
-    
-    newSubMenu.CreateAction "9DE5BDB9-E47F-4614-BDF8-C331B9B38C70" 647394 permanentId
+
+    -- 647394 : MacroScript Action Table ID
+    -- 36784  : .NET Assembly Action Table ID    
+    newSubMenu.CreateAction "9DE5BDB9-E47F-4614-BDF8-C331B9B38C70" 36784 permanentId
 )
 
 -- Register Callback to the #CuiRegisterMenus
