@@ -4,7 +4,7 @@
 
     -- so this should ensure it is only one time only per user UI setup
     -- MUST keep the value the SAME for all apps
-    if menuMan.registerMenuContext 0x2adadafb then
+    if menuMan.registerMenuContext 0x3923df2 then
     (
         -- can take these out, but it shows that it is called only when needed...
         -- print "ADN-Explode geometry: Creating App Store Menu"

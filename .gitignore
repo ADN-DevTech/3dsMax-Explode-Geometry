@@ -14,9 +14,6 @@ TestResults
 *.sln.docstates
 *.sln
 
-# Visual Studio Code
-.vs/
-
 # Build results
 [Dd]ebug/
 [Rr]elease/
