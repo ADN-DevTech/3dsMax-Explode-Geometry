@@ -28,7 +28,7 @@ App Store
 ==============
 From 3ds Max 2025 and up, adding menu entries to the main menu bar utilizes the use of GUID to uniquely identify menu entries. As such, we recommend the use of `CC18FEFC-E8A4-4B16-B519-664E8FA3B549` as App Store menu entry for 2025 and later versions for uniformity.
 
-To add you menu etries under "App Store" main menu entry, here is a short snippet in MaxScript. See full sample for adding Explode Geometry to the App Store menu [here](Bundle2\Contents\Post-Start-Up_Scripts\ADNGeometryExplodeSetupMenu2025.ms).
+To add you menu etries under "App Store" main menu entry, here is a short snippet in MaxScript. See full sample for adding Explode Geometry to the App Store menu [here](Bundle2/Contents/Post-Start-Up_Scripts/ADNGeometryExplodeSetupMenu2025.ms).
 
 ```ms
 -- other code here ....
