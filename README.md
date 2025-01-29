@@ -24,12 +24,29 @@ Collapse Modifier Stack -- will collapse the stack down to become an editable me
 Center Pivot -- will center the pivot on each resulting face.
 Delete Original -- will remove each original node that was used to create the new faces.
 
+App Store
+==============
+From 3ds Max 2025 and up, adding menu entries to the main menu bar utilizes the use of GUID to uniquely identify menu entries. As such, we recommend the use of `CC18FEFC-E8A4-4B16-B519-664E8FA3B549` as App Store menu entry for 2025 and later versions for uniformity.
+
+To add you menu etries under "App Store" main menu entry, here is a short snippet in MaxScript. See full sample for adding Explode Geometry to the App Store menu [here](Bundle2\Contents\Post-Start-Up_Scripts\ADNGeometryExplodeSetupMenu2025.ms).
+
+```ms
+-- other code here ....
+
+-- Add the "App Store" menu before "Help" menu on main menubar
+local newSubMenu = mainMenuBar.CreateSubMenu appStoreMenuId stringAppStoreDefaultMenu beforeId:helpMenuId
+
+-- Adding your menu item
+-- 647394 : MacroScript Action Table ID
+newSubMenu.CreateAction <Your Menu GUID> 647394 <MacroScript Name`MacroScript Category>
+```
+
 Python Version
 ==============
 A port of this plugin that implements the basic functionality is available in the Python folder called `explode_geometry.py`.  This
-script requires the `MaxPlus` Python feature for 3ds Max *2022* or earlier and `pymxs` for newer 3ds Max versions.
+script requires the `MaxPlus` Python feature for 3ds Max *2021* or earlier. 
 
-> Limitation: Python samples not ported fully to `pymxs`.
+> Limitation: The python sample relies on `MaxPlus` which was deprecated and removed as from 3ds Max 2022 [(See Here)](https://help.autodesk.com/view/MAXDEV/2023/ENU/?guid=MAXDEV_Python_what_s_new_in_3ds_max_python_api_html). As such, the Python sample only works with 3ds Max versions earlier than 2022.
 
 Additional Information
 =================
