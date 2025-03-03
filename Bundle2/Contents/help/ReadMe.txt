@@ -33,7 +33,7 @@ will be displayed for long actions and you have the option to cancel.
 
 You can choose to create three or four sided objects as a result of the explode 
 operation. Select the radio button of the desired operation. Additionally you 
-can toggle whether to try and convert the object’s mesh before the conversion. 
+can toggle whether to try and convert the objectï¿½s mesh before the conversion. 
 By default it will try to convert, and if it cannot it will end. If it can be 
 converted (or is already of the correct type) then each node will be exploded 
 into the resulting individual faces. 
@@ -83,6 +83,9 @@ Release History
 1.0    Original release                     (February 1, 2013)
 2.0    Update release to incude UI color matching and now suports 3ds Max (Design) 2015 and 2016. (December 1, 2015)
 2.1    Update release to support 2017, and minor code changes to support bug fixing in the Autodesk.Max.DLL assembly. (July 1, 2016)
+2.3    Updates the DLL binary and other aspects of the App Bundle format to be supporting 2020, 2021, 2022, and 2023.  
+2.5    Updates the sample code to support Mesh changes in the 2024 SDK.  
+2.6    Support for 3ds Max 2025, ported to new menu system
 
 (C) Copyright 2012 by Autodesk, Inc. 
 
