@@ -85,7 +85,8 @@ Release History
 2.1    Update release to support 2017, and minor code changes to support bug fixing in the Autodesk.Max.DLL assembly. (July 1, 2016)
 2.3    Updates the DLL binary and other aspects of the App Bundle format to be supporting 2020, 2021, 2022, and 2023.  
 2.5    Updates the sample code to support Mesh changes in the 2024 SDK.  
-2.6    Support for 3ds Max 2025, ported to new menu system
+2.6    Update release to support 2024
+2.7    Support for 3ds Max 2025 and the new menu system.
 
 (C) Copyright 2012 by Autodesk, Inc. 
 
