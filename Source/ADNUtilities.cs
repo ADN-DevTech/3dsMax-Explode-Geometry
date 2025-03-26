@@ -480,7 +480,7 @@ namespace ADNExplodeGeometry
                         int nvindex = vtx[k];
                         IMNVert vert = polyObj.Mesh.V(nvindex);
                         Debug.Print("\nVertex = " + k + ", " + nvindex);
-                        polyNewFace.Mesh.V(k).Assign(vert);
+                        polyNewFace.Mesh.V(k).P = vert.P;
                         fnew.Vtx[k] = k;
                     }
 

@@ -98,6 +98,8 @@ namespace ADNExplodeGeometry
 
         public override void CustomExecute(object parameter)
         {
+            Console.WriteLine("Custom Execute");
+
             try
             {
                 IGlobal global = Autodesk.Max.GlobalInterface.Instance;
