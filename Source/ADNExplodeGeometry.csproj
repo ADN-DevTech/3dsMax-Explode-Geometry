@@ -1,22 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{18A8DCF7-94AC-060B-88DD-8F444D1A897E}</ProjectGuid>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ADNExplodeGeometry</RootNamespace>
-    <AssemblyName>ADNExplodeGeometry</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -32,103 +18,37 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <OutputPath>C:\ProgramData\Autodesk\ApplicationPlugins\ADN-ExplodeGeometry.bundle\Contents\ManagedAssemblies\2026\</OutputPath>
   </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>C:\ProgramData\Autodesk\ApplicationPlugins\ADN-ExplodeGeometry.bundle\Contents\ManagedAssemblies\2025\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>C:\ProgramData\Autodesk\ApplicationPlugins\ADN-ExplodeGeometry.bundle\Contents\ManagedAssemblies\2025\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
     <Optimize>false</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Autodesk.Max">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\Autodesk.Max.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CSharpUtilities">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\CSharpUtilities.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ManagedServices">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\ManagedServices.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MaxCustomControls">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\MaxCustomControls.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="PresentationCore">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="PresentationFramework">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
+    <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq">
+    <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UIAutomationProvider">
+    <Reference Update="UIAutomationProvider">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="UiViewModels">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\UiViewModels.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="WindowsBase">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WPFCustomControls">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\WPFCustomControls.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ADNExplodeGeometry.cs" />
-    <Compile Include="ADNUtilities.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XAML\ExplodeGeomUserControl1.xaml.cs">
-      <DependentUpon>ExplodeGeomUserControl1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="XAML\NumericEntryControl.xaml.cs">
-      <DependentUpon>NumericEntryControl.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="XAML\ExplodeGeomUserControl1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="XAML\NumericEntryControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
+
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
@@ -146,16 +66,40 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Autodesk.Max">
+      <HintPath>$(ADSK_3DSMAX_x64_2025)\Autodesk.Max.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CSharpUtilities">
+      <HintPath>$(ADSK_3DSMAX_x64_2025)\CSharpUtilities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ManagedServices">
+      <HintPath>$(ADSK_3DSMAX_x64_2025)\ManagedServices.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MaxCustomControls">
+      <HintPath>$(ADSK_3DSMAX_x64_2025)\MaxCustomControls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UiViewModels">
+      <HintPath>$(ADSK_3DSMAX_x64_2025)\UiViewModels.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WPFCustomControls">
+      <HintPath>$(ADSK_3DSMAX_x64_2025)\WPFCustomControls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
