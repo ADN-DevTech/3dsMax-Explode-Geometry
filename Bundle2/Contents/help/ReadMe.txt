@@ -87,6 +87,7 @@ Release History
 2.5    Updates the sample code to support Mesh changes in the 2024 SDK.  
 2.6    Update release to support 2024
 2.7    Support for 3ds Max 2025 and the new menu system.
+2.8    Support for 3ds Max 2026 and .NET Core 8.  
 
 (C) Copyright 2012 by Autodesk, Inc. 
 

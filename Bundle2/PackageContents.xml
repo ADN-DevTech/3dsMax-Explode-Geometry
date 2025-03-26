@@ -2,8 +2,8 @@
 <ApplicationPackage 
   SchemaVersion="1.0" AutodeskProduct="3ds Max" Name="ADN-ExplodeGeometry" 
   DescriptionLong="This is a plugin to explode geometry into faces." 
-  Description="3ds Max Explode geometry plug-in." AppVersion="2.7.0" 
-  FriendlyVersion="2.7.0" ProductType="Application" HelpFile="./Contents/help/index.html" 
+  Description="3ds Max Explode geometry plug-in." AppVersion="2.8.0" 
+  FriendlyVersion="2.8.0" ProductType="Application" HelpFile="./Contents/help/index.html" 
   SupportedLocales="Enu" AppNameSpace="apps.autodesk.com" Author="Autodesk" 
   ProductCode="{EB5B2654-1819-4B08-9CD5-C08A78CD6161}" UpgradeCode="{66F3EE72-4606-4DD2-8BA5-834F82C9195C}" 
   OnlineDocumentation="http://www.autodesk.com" Icon="./Contents/Icon/ADN-ExplodeGeometry.ico">
@@ -17,42 +17,48 @@
     OS="Win64" 
     Platform="3ds Max" 
     SeriesMin="2020" 
-    SeriesMax="2025" />
+    SeriesMax="2026" />
 
   <!-- Add MacroScript to be executed by the menu entry added under AppStore > Explode Selected Geometry -->
   <Components Description="macroscripts parts">
-    <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2020" SeriesMax="2025" />
-    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.7.0" ModuleName="./Contents/macroscripts/ADNExplodeGeometry.mcr" AppDescription="ADNExplodeGeometry" />
+    <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2020" SeriesMax="2026" />
+    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.8.0" ModuleName="./Contents/macroscripts/ADNExplodeGeometry.mcr" AppDescription="ADNExplodeGeometry" />
   </Components>
 
   <!-- Script to add menu context to the AppStore Menu Entry -->
   <Components Description="post-start-up scripts parts">
     <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2020" SeriesMax="2024" />
-    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.7.0" ModuleName="./Contents/Post-Start-Up_Scripts/ADNGeometryExplodeSetupMenu.ms" AppDescription="Setup Menu to execute tool" />
+    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.8.0" ModuleName="./Contents/Post-Start-Up_Scripts/ADNGeometryExplodeSetupMenu.ms" AppDescription="Setup Menu to execute tool" />
   </Components>
 
   <!-- Script to add menu to the AppStore Menu Entry, uses new menu system starting 3ds Max 2025 -->
   <Components Description="post-start-up scripts parts">
-    <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2025" SeriesMax="2025" />
-    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.7.0" ModuleName="./Contents/Post-Start-Up_Scripts/ADNGeometryExplodeSetupMenu2025.ms" AppDescription="Setup Menu to execute tool" />
+    <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2025" SeriesMax="2026" />
+    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.8.0" ModuleName="./Contents/Post-Start-Up_Scripts/ADNGeometryExplodeSetupMenu2025.ms" AppDescription="Setup Menu to execute tool" />
   </Components>
 
   <!-- Add ExplodeGeometry Assembly for 3ds Max 2020 to 2023 -->
   <Components Description="assemblies parts">
     <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2020" SeriesMax="2023" />
-    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.7.0" ModuleName="./Contents/ManagedAssemblies/2020/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
+    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.8.0" ModuleName="./Contents/ManagedAssemblies/2020/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
   </Components>
 
   <!-- Add ExplodeGeometry Assembly for 3ds Max 2024 -->
   <Components Description="assemblies parts">
     <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2024" SeriesMax="2024" />
-    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.7.0" ModuleName="./Contents/ManagedAssemblies/2024/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
+    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.8.0" ModuleName="./Contents/ManagedAssemblies/2024/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
   </Components>
 
   <!-- Add ExplodeGeometry Assembly for 3ds Max 2025, .NET Framework 4.8.1 -->
   <Components Description="assemblies parts">
     <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2025" SeriesMax="2025" />
-    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.7.0" ModuleName="./Contents/ManagedAssemblies/2025/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
+    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.8.0" ModuleName="./Contents/ManagedAssemblies/2025/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
+  </Components>
+
+  <!-- Add ExplodeGeometry Assembly for 3ds Max 2026, .NET Core 8.0 -->
+  <Components Description="assemblies parts">
+    <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2026" SeriesMax="2026" />
+    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.8.0" ModuleName="./Contents/ManagedAssemblies/2026/ADNExplodeGeometry.dll" AppDescription="The ADNGeometryExplode managed assembly module" />
   </Components>
 
 </ApplicationPackage>
