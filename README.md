@@ -71,5 +71,6 @@ Version
 2.3 - Updates the DLL binary and other aspects of the App Bundle format to be supporting 2020, 2021, 2022, and 2023.  
 2.5 - Update release to support 2022. No change in version Number.  
 2.6 - Update release to support 2024  
-2.7 - Support for 3ds Max 2025 and the new menu system.  
+2.7 - Support for 3ds Max 2025 and the new menu system.
+2.8 - Support for 3ds Max 2026 and .NET Core 8.  
 
