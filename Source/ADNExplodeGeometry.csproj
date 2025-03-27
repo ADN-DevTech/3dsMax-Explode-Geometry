@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
     <PlatformTarget>x64</PlatformTarget>
-	  <Platforms>x64</Platforms>
+    <Platforms>x64</Platforms>
     <OutputType>Library</OutputType>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
