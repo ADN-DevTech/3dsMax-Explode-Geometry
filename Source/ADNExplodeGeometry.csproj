@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <Platforms>x64</Platforms>
     <OutputType>Library</OutputType>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -25,6 +27,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <OutputPath>C:\ProgramData\Autodesk\ApplicationPlugins\ADN-ExplodeGeometry.bundle\Contents\ManagedAssemblies\2026\</OutputPath>
+    <NoWarn>$(NoWarn);CA1416</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
@@ -38,68 +41,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Update="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Update="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Update="UIAutomationProvider">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="Autodesk.Max">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\Autodesk.Max.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2026)\Autodesk.Max.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="CSharpUtilities">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\CSharpUtilities.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2026)\CSharpUtilities.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ManagedServices">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\ManagedServices.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2026)\ManagedServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MaxCustomControls">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\MaxCustomControls.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2026)\MaxCustomControls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UiViewModels">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\UiViewModels.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2026)\UiViewModels.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="WPFCustomControls">
-      <HintPath>$(ADSK_3DSMAX_x64_2025)\WPFCustomControls.dll</HintPath>
+      <HintPath>$(ADSK_3DSMAX_x64_2026)\WPFCustomControls.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-
-  <PropertyGroup>
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
 
 </Project>
