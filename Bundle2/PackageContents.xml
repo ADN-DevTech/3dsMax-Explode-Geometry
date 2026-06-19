@@ -25,6 +25,11 @@
     <ComponentEntry AppName="ADNExplodeGeometry" Version="2.9.0" ModuleName="./Contents/macroscripts/ADNExplodeGeometry.mcr" AppDescription="ADNExplodeGeometry" />
   </Components>
 
+  <Components Description="macroscripts parts">
+    <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2027" SeriesMax="2027" />
+    <ComponentEntry AppName="ADNExplodeGeometry" Version="2.9.0" ModuleName="./Contents/macroscripts/ADNExplodeGeometryPy.mcr" AppDescription="ADNExplodeGeometryPy" />
+  </Components>
+
   <!-- Script to add menu context to the AppStore Menu Entry -->
   <Components Description="post-start-up scripts parts">
     <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2020" SeriesMax="2024" />

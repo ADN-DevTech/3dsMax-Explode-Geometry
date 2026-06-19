@@ -1,4 +1,4 @@
-macroScript ADNExplodeGeomMS category:"ADN Samples" tooltip:"Explode Selected Geometry" buttonText:"Explode Selected Geometry"
+macroScript ADNExplodeGeomMS category:"ADN Samples" tooltip:"Explode Selected Geometry (.NET)" buttonText:"Explode Selected Geometry (.NET)"
 (
     -- Again a limitation in maxscript... Cannot get the actionitem from the managed assembly easily
     -- but using the IDs will allow this macroscript to execute it

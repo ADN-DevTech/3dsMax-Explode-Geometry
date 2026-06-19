@@ -54,7 +54,13 @@ function menuCallback =
     local permanentId = stringMacroScriptName + "`" + stringMacroScriptCategory
 
     -- 647394 : MacroScript Action Table ID
-    newSubMenu.CreateAction "9DE5BDB9-E47F-4614-BDF8-C331B9B38C70" 647394 permanentId
+    newSubMenu.CreateAction "9DE5BDB9-E47F-4614-BDF8-C331B9B38C70" 647394 permanentId	
+
+	-- Only add Python menu entry for 3ds Max 2027 and above, as Python support in the UI is only available from 2027 onwards.
+	if (maxVersion())[1] >= 29000 then
+    (
+    	newSubMenu.CreateAction "85045470-A03C-45EC-A13F-538346AF077A" 647394 "ADNExplodeGeomPyMS`ADN Samples"
+	)
 )
 
 -- Register Callback to the #CuiRegisterMenus
