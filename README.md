@@ -43,10 +43,7 @@ newSubMenu.CreateAction <Your Menu GUID> 647394 <MacroScript Name`MacroScript Ca
 
 Python Version
 ==============
-A port of this plugin that implements the basic functionality is available in the Python folder called `explode_geometry.py`.  This
-script requires the `MaxPlus` Python feature for 3ds Max *2021* or earlier. 
-
-> Limitation: The python sample relies on `MaxPlus` which was deprecated and removed as from 3ds Max 2022 [(See Here)](https://help.autodesk.com/view/MAXDEV/2023/ENU/?guid=MAXDEV_Python_what_s_new_in_3ds_max_python_api_html). As such, the Python sample only works with 3ds Max versions earlier than 2022.
+A port of this plugin that implements the basic functionality is available in the Python folder called `explode_geometry.py`. This script uses the `pymxs` Python API with PySide6 and requires 3ds Max 2022 or later. For best results, use 3ds Max 2026 or 2027.
 
 Additional Information
 =================
