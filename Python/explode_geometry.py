@@ -103,6 +103,49 @@ class Ui_Form(object):
         self.explode_button.setObjectName("explode_button")
         mainLayout.addWidget(self.explode_button)
 
+        # Progress panel (hidden by default)
+        self.progress_panel = QtWidgets.QWidget(Form)
+        self.progress_panel.setObjectName("progress_panel")
+        progressLayout = QtWidgets.QVBoxLayout(self.progress_panel)
+        progressLayout.setContentsMargins(0, 4, 0, 0)
+        progressLayout.setSpacing(4)
+
+        self.progress_bar = QtWidgets.QProgressBar(self.progress_panel)
+        self.progress_bar.setObjectName("progress_bar")
+        self.progress_bar.setMinimum(0)
+        self.progress_bar.setMaximum(100)
+        self.progress_bar.setValue(0)
+        progressLayout.addWidget(self.progress_bar)
+
+        nodeNameRow = QtWidgets.QHBoxLayout()
+        self.lbl_label_pro_node = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_label_pro_node.setObjectName("lbl_label_pro_node")
+        nodeNameRow.addWidget(self.lbl_label_pro_node)
+        self.lbl_node_name = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_node_name.setObjectName("lbl_node_name")
+        nodeNameRow.addWidget(self.lbl_node_name)
+        nodeNameRow.addStretch()
+        progressLayout.addLayout(nodeNameRow)
+
+        counterRow = QtWidgets.QHBoxLayout()
+        self.lbl_label_node = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_label_node.setObjectName("lbl_label_node")
+        counterRow.addWidget(self.lbl_label_node)
+        self.lbl_curr_node = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_curr_node.setObjectName("lbl_curr_node")
+        counterRow.addWidget(self.lbl_curr_node)
+        self.lbl_label_of = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_label_of.setObjectName("lbl_label_of")
+        counterRow.addWidget(self.lbl_label_of)
+        self.lbl_tot_node = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_tot_node.setObjectName("lbl_tot_node")
+        counterRow.addWidget(self.lbl_tot_node)
+        counterRow.addStretch()
+        progressLayout.addLayout(counterRow)
+
+        self.progress_panel.setVisible(False)
+        mainLayout.addWidget(self.progress_panel)
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
@@ -121,6 +164,9 @@ class Ui_Form(object):
         self.select_label.setText(QtCore.QCoreApplication.translate("Form", "Selected Object(s):"))
         self.selected_objects_string.setText(QtCore.QCoreApplication.translate("Form", "None"))
         self.explode_button.setText(QtCore.QCoreApplication.translate("Form", "Explode"))
+        self.lbl_label_pro_node.setText(QtCore.QCoreApplication.translate("Form", "Processing Node:"))
+        self.lbl_label_node.setText(QtCore.QCoreApplication.translate("Form", "Node:"))
+        self.lbl_label_of.setText(QtCore.QCoreApplication.translate("Form", "of"))
 
 
 ''' Form class that allows the user to select options for the script
