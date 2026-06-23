@@ -103,6 +103,49 @@ class Ui_Form(object):
         self.explode_button.setObjectName("explode_button")
         mainLayout.addWidget(self.explode_button)
 
+        # Progress panel (hidden by default)
+        self.progress_panel = QtWidgets.QWidget(Form)
+        self.progress_panel.setObjectName("progress_panel")
+        progressLayout = QtWidgets.QVBoxLayout(self.progress_panel)
+        progressLayout.setContentsMargins(0, 4, 0, 0)
+        progressLayout.setSpacing(4)
+
+        self.progress_bar = QtWidgets.QProgressBar(self.progress_panel)
+        self.progress_bar.setObjectName("progress_bar")
+        self.progress_bar.setMinimum(0)
+        self.progress_bar.setMaximum(100)
+        self.progress_bar.setValue(0)
+        progressLayout.addWidget(self.progress_bar)
+
+        nodeNameRow = QtWidgets.QHBoxLayout()
+        self.lbl_label_pro_node = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_label_pro_node.setObjectName("lbl_label_pro_node")
+        nodeNameRow.addWidget(self.lbl_label_pro_node)
+        self.lbl_node_name = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_node_name.setObjectName("lbl_node_name")
+        nodeNameRow.addWidget(self.lbl_node_name)
+        nodeNameRow.addStretch()
+        progressLayout.addLayout(nodeNameRow)
+
+        counterRow = QtWidgets.QHBoxLayout()
+        self.lbl_label_node = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_label_node.setObjectName("lbl_label_node")
+        counterRow.addWidget(self.lbl_label_node)
+        self.lbl_curr_node = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_curr_node.setObjectName("lbl_curr_node")
+        counterRow.addWidget(self.lbl_curr_node)
+        self.lbl_label_of = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_label_of.setObjectName("lbl_label_of")
+        counterRow.addWidget(self.lbl_label_of)
+        self.lbl_tot_node = QtWidgets.QLabel(self.progress_panel)
+        self.lbl_tot_node.setObjectName("lbl_tot_node")
+        counterRow.addWidget(self.lbl_tot_node)
+        counterRow.addStretch()
+        progressLayout.addLayout(counterRow)
+
+        self.progress_panel.setVisible(False)
+        mainLayout.addWidget(self.progress_panel)
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
@@ -121,6 +164,9 @@ class Ui_Form(object):
         self.select_label.setText(QtCore.QCoreApplication.translate("Form", "Selected Object(s):"))
         self.selected_objects_string.setText(QtCore.QCoreApplication.translate("Form", "None"))
         self.explode_button.setText(QtCore.QCoreApplication.translate("Form", "Explode"))
+        self.lbl_label_pro_node.setText(QtCore.QCoreApplication.translate("Form", "Processing Node:"))
+        self.lbl_label_node.setText(QtCore.QCoreApplication.translate("Form", "Node:"))
+        self.lbl_label_of.setText(QtCore.QCoreApplication.translate("Form", "of"))
 
 
 ''' Form class that allows the user to select options for the script
@@ -167,33 +213,50 @@ class Form(QtWidgets.QWidget, Ui_Form):
             print("[ExplodeGeometry] ERROR: {}".format(msg))
             self.show_alert(msg)
         else:
+            self.progress_panel.setVisible(True)
+            QtWidgets.QApplication.processEvents()
+
+            def _prog(cur, tot):
+                self.progress_bar.setValue(int(cur * 100 / tot) if tot else 0)
+                QtWidgets.QApplication.processEvents()
+
             with pymxs.undo(True, "Explode Geometry"):
                 if self.trimesh_option.isChecked():
                     transformation_set = list(rt.selection)
+                    self.lbl_tot_node.setText(str(len(transformation_set)))
                     print("[ExplodeGeometry] [TriMesh] Processing {} object(s)".format(len(transformation_set)))
                     for i, n in enumerate(transformation_set, 1):
                         print("[ExplodeGeometry] [TriMesh] Object {}/{}: '{}'".format(i, len(transformation_set), n.name))
+                        self.lbl_node_name.setText(n.name)
+                        self.lbl_curr_node.setText(str(i))
+                        QtWidgets.QApplication.processEvents()
                         convert_to_triangle_faces(n, addShell, shell_amount,
                                                   addEditMesh, collapseNode,
-                                                  centerPivot)
+                                                  centerPivot, on_progress=_prog)
                         if deleteOriginal:
                             print("[ExplodeGeometry] [TriMesh] Deleting original '{}'".format(n.name))
                             rt.delete(n)
 
                 if self.mnmesh_option.isChecked():
                     transformation_set = list(rt.selection)
+                    self.lbl_tot_node.setText(str(len(transformation_set)))
                     print("[ExplodeGeometry] [MNMesh] Processing {} object(s)".format(len(transformation_set)))
                     for i, node in enumerate(transformation_set, 1):
                         print("[ExplodeGeometry] [MNMesh] Object {}/{}: '{}'".format(i, len(transformation_set), node.name))
+                        self.lbl_node_name.setText(node.name)
+                        self.lbl_curr_node.setText(str(i))
+                        QtWidgets.QApplication.processEvents()
                         convert_to_mnmesh_faces(node, addShell, shell_amount,
                                                 addEditMesh, collapseNode,
-                                                centerPivot)
+                                                centerPivot, on_progress=_prog)
                         if deleteOriginal:
                             print("[ExplodeGeometry] [MNMesh] Deleting original '{}'".format(node.name))
                             rt.delete(node)
 
             print("[ExplodeGeometry] Done. Redrawing views.")
             rt.redrawViews()
+            self.progress_panel.setVisible(False)
+            self.progress_bar.setValue(0)
             rt.callbacks.removeScripts(id=rt.Name('explodeGeom'))
             self.close()
 
@@ -213,12 +276,13 @@ def _random_wire_color():
     return rt.Color(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
 
 
-def convert_to_triangle_faces(node, addShell, shell_amount, addEditMesh, collapseNode, centerPivot):
+def convert_to_triangle_faces(node, addShell, shell_amount, addEditMesh, collapseNode, centerPivot, on_progress=None):
     print("[ExplodeGeometry] [TriMesh] Converting '{}' to mesh...".format(node.name))
     rt.convertToMesh(node)
-    # After convertToMesh the stack is collapsed and getVert returns world-space positions
     num_faces = rt.getNumFaces(node)
     print("[ExplodeGeometry] [TriMesh] '{}' has {} face(s) to explode".format(node.name, num_faces))
+    if on_progress:
+        on_progress(0, num_faces)
     for face_idx in range(1, num_faces + 1):
         face = rt.getFace(node, face_idx)
         v1 = rt.getVert(node, int(face.x))
@@ -235,29 +299,33 @@ def convert_to_triangle_faces(node, addShell, shell_amount, addEditMesh, collaps
 
         applySettings(new_node, addShell, shell_amount,
                       addEditMesh, collapseNode, centerPivot)
+        if on_progress:
+            on_progress(face_idx, num_faces)
     print("[ExplodeGeometry] [TriMesh] Finished exploding '{}'".format(node.name))
 
 
-def convert_to_mnmesh_faces(node, addShell, shell_amount, addEditMesh, collapseNode, centerPivot):
+def convert_to_mnmesh_faces(node, addShell, shell_amount, addEditMesh, collapseNode, centerPivot, on_progress=None):
     print("[ExplodeGeometry] [Poly] Converting '{}' to poly...".format(node.name))
     rt.convertToPoly(node)
     num_faces = rt.polyop.getNumFaces(node)
     print("[ExplodeGeometry] [Poly] '{}' has {} face(s) to explode".format(node.name, num_faces))
 
-    # Detach faces in reverse order so earlier face indices stay valid as later ones are removed.
-    # polyop.detachFaces returns a boolean (not the new INode), so we snapshot existing node
-    # handles before each detach and find the newly added node by handle exclusion.
+    if on_progress:
+        on_progress(0, num_faces)
+    _processed = 0
     for face_idx in range(num_faces, 0, -1):
         print("[ExplodeGeometry] [Poly] Detaching face {}/{}".format(face_idx, num_faces))
-        rt.polyop.detachFaces(node, rt.Array(face_idx), asNode=True) # True/False
+        rt.polyop.detachFaces(node, rt.Array(face_idx), asNode=True)
         new_node = rt.objects[-1]
-        # print (new_node) # Check if the node is valid
         if new_node is None:
             print("[ExplodeGeometry] [Poly] WARNING: Could not find detached node for face {}".format(face_idx))
             continue
         new_node.wireColor = _random_wire_color()
         print("[ExplodeGeometry] [Poly] Created piece '{}' for face {}".format(new_node.name, face_idx))
         applySettings(new_node, addShell, shell_amount, addEditMesh, collapseNode, centerPivot)
+        _processed += 1
+        if on_progress:
+            on_progress(_processed, num_faces)
     print("[ExplodeGeometry] [Poly] Finished exploding '{}'".format(node.name))
 
 
