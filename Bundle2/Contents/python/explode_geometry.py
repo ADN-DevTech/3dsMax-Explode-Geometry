@@ -34,7 +34,7 @@ class _GCProtector(object):
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.setMinimumWidth(320)
+        Form.setMinimumWidth(400)
 
         mainLayout = QtWidgets.QVBoxLayout(Form)
         mainLayout.setContentsMargins(10, 10, 10, 10)
@@ -48,12 +48,13 @@ class Ui_Form(object):
         # Shell modifier row
         shellRow = QtWidgets.QHBoxLayout()
         self.add_shell_checkbox = QtWidgets.QCheckBox(self.groupBox)
-        self.add_shell_checkbox.setObjectName("add_shell_checkbox")
+        self.add_shell_checkbox.setObjectName("add_shell_checkbox")        
+        self.add_shell_checkbox.setChecked(True)
         shellRow.addWidget(self.add_shell_checkbox)
 
         self.offset_label = QtWidgets.QLabel(self.groupBox)
-        self.offset_label.setFixedWidth(40)
         self.offset_label.setObjectName("offset_label")
+        self.offset_label.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignVCenter)
         shellRow.addWidget(self.offset_label)
 
         self.shell_offset = QtWidgets.QDoubleSpinBox(self.groupBox)
@@ -79,11 +80,21 @@ class Ui_Form(object):
 
         self.delete_original_checkbox = QtWidgets.QCheckBox(self.groupBox)
         self.delete_original_checkbox.setObjectName("delete_original_checkbox")
+        self.delete_original_checkbox.setChecked(True)
         groupBoxLayout.addWidget(self.delete_original_checkbox)
 
         self.show_debug_checkbox = QtWidgets.QCheckBox(self.groupBox)
         self.show_debug_checkbox.setObjectName("show_debug_checkbox")
         groupBoxLayout.addWidget(self.show_debug_checkbox)
+
+        self.debug_warn_label = QtWidgets.QLabel(self.groupBox)
+        self.debug_warn_label.setObjectName("debug_warn_label")
+        self.debug_warn_label.setStyleSheet("color: red;")
+        self.debug_warn_label.setVisible(False)
+        groupBoxLayout.addWidget(self.debug_warn_label)
+
+        # Only show the debug warning label when the debug checkbox is checked
+        self.show_debug_checkbox.checkStateChanged.connect(lambda checkState: self.debug_warn_label.setVisible(checkState == QtCore.Qt.Checked))
 
         # Geometry Type sub-group
         self.groupBox_2 = QtWidgets.QGroupBox(self.groupBox)
@@ -181,6 +192,7 @@ class Ui_Form(object):
         self.center_pivot_checkbox.setText(QtCore.QCoreApplication.translate("Form", "Center Pivot"))
         self.delete_original_checkbox.setText(QtCore.QCoreApplication.translate("Form", "Delete Original"))
         self.show_debug_checkbox.setText(QtCore.QCoreApplication.translate("Form", "Show Debug Messages"))
+        self.debug_warn_label.setText(QtCore.QCoreApplication.translate("Form", "NOTE: Debug messages will affect performance."))
         self.select_label.setText(QtCore.QCoreApplication.translate("Form", "Selected Object(s):"))
         self.selected_objects_string.setText(QtCore.QCoreApplication.translate("Form", "None"))
         self.explode_button.setText(QtCore.QCoreApplication.translate("Form", "Explode"))
@@ -237,6 +249,7 @@ class Form(QtWidgets.QWidget, Ui_Form):
             logger.error(msg)
             self.show_alert(msg)
         else:
+            pymxs.print_("[ExplodeGeometry] Explode started\n")
             self.progress_panel.setVisible(True)
             QtWidgets.QApplication.processEvents()
             start_time = time.perf_counter()
@@ -284,7 +297,7 @@ class Form(QtWidgets.QWidget, Ui_Form):
 
             # Always surface the completion summary on the Listener, regardless
             # of the debug-messages toggle.
-            pymxs.print_("[ExplodeGeometry] Explode completed successfully in {:.2f} seconds.".format(elapsed))
+            pymxs.print_("[ExplodeGeometry] Explode completed in {:.2f} seconds.\n".format(elapsed))
             
             self.progress_panel.setVisible(False)
             self.progress_bar.setValue(0)
