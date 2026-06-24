@@ -278,12 +278,14 @@ class Form(QtWidgets.QWidget, Ui_Form):
                             logger.debug("[MNMesh] Deleting original '%s'", node.name)
                             rt.delete(node)
 
+            elapsed = time.perf_counter() - start_time
             logger.debug("Done. Redrawing views.")
             rt.redrawViews()
-            elapsed = time.perf_counter() - start_time
+
             # Always surface the completion summary on the Listener, regardless
             # of the debug-messages toggle.
-            print("[ExplodeGeometry] Explode completed successfully in {:.2f} seconds.".format(elapsed))
+            pymxs.print_("[ExplodeGeometry] Explode completed successfully in {:.2f} seconds.".format(elapsed))
+            
             self.progress_panel.setVisible(False)
             self.progress_bar.setValue(0)
             rt.callbacks.removeScripts(id=rt.Name('explodeGeom'))
