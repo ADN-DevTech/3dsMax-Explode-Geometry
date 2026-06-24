@@ -9,8 +9,21 @@ from PySide6 import QtCore, QtWidgets
 import pymxs
 import qtmax
 import random
+import logging
+import sys
 
 rt = pymxs.runtime
+
+# Logger that pushes messages to the MAXScript Listener (stdout). When the
+# "Show Debug Messages" option is enabled the level is lowered to DEBUG so all
+# messages flow through; otherwise only WARNING/CRITICAL messages are emitted.
+logger = logging.getLogger("ExplodeGeometry")
+logger.setLevel(logging.WARNING)
+logger.propagate = False
+if not logger.handlers:
+    _handler = logging.StreamHandler(sys.stdout)
+    _handler.setFormatter(logging.Formatter("[ExplodeGeometry] %(levelname)s: %(message)s"))
+    logger.addHandler(_handler)
 
 class _GCProtector(object):
     widgets = []
@@ -67,6 +80,10 @@ class Ui_Form(object):
         self.delete_original_checkbox.setObjectName("delete_original_checkbox")
         groupBoxLayout.addWidget(self.delete_original_checkbox)
 
+        self.show_debug_checkbox = QtWidgets.QCheckBox(self.groupBox)
+        self.show_debug_checkbox.setObjectName("show_debug_checkbox")
+        groupBoxLayout.addWidget(self.show_debug_checkbox)
+
         # Geometry Type sub-group
         self.groupBox_2 = QtWidgets.QGroupBox(self.groupBox)
         self.groupBox_2.setObjectName("groupBox_2")
@@ -97,13 +114,8 @@ class Ui_Form(object):
         selRow.addWidget(self.selected_objects_string)
         mainLayout.addLayout(selRow)
 
-        # Explode button
-        self.explode_button = QtWidgets.QPushButton(Form)
-        self.explode_button.setFixedHeight(50)
-        self.explode_button.setObjectName("explode_button")
-        mainLayout.addWidget(self.explode_button)
-
-        # Progress panel (hidden by default)
+        # Progress panel (hidden by default) -- shown above the explode button
+        # only while an explode operation is running.
         self.progress_panel = QtWidgets.QWidget(Form)
         self.progress_panel.setObjectName("progress_panel")
         progressLayout = QtWidgets.QVBoxLayout(self.progress_panel)
@@ -146,6 +158,12 @@ class Ui_Form(object):
         self.progress_panel.setVisible(False)
         mainLayout.addWidget(self.progress_panel)
 
+        # Explode button
+        self.explode_button = QtWidgets.QPushButton(Form)
+        self.explode_button.setFixedHeight(50)
+        self.explode_button.setObjectName("explode_button")
+        mainLayout.addWidget(self.explode_button)
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
@@ -161,6 +179,7 @@ class Ui_Form(object):
         self.collapse_modifier_stack_checkbox.setText(QtCore.QCoreApplication.translate("Form", "Collapse Modifier Stack"))
         self.center_pivot_checkbox.setText(QtCore.QCoreApplication.translate("Form", "Center Pivot"))
         self.delete_original_checkbox.setText(QtCore.QCoreApplication.translate("Form", "Delete Original"))
+        self.show_debug_checkbox.setText(QtCore.QCoreApplication.translate("Form", "Show Debug Messages"))
         self.select_label.setText(QtCore.QCoreApplication.translate("Form", "Selected Object(s):"))
         self.selected_objects_string.setText(QtCore.QCoreApplication.translate("Form", "None"))
         self.explode_button.setText(QtCore.QCoreApplication.translate("Form", "Explode"))
@@ -199,18 +218,22 @@ class Form(QtWidgets.QWidget, Ui_Form):
         deleteOriginal = self.delete_original_checkbox.isChecked()
         mode = "TriMesh" if self.trimesh_option.isChecked() else "MNMesh"
 
-        print("[ExplodeGeometry] --- Explode triggered ---")
-        print("[ExplodeGeometry] Mode:            {}".format(mode))
-        print("[ExplodeGeometry] Add Shell:        {} (offset={})".format(addShell, shell_amount))
-        print("[ExplodeGeometry] Add Edit Mesh:    {}".format(addEditMesh))
-        print("[ExplodeGeometry] Collapse Stack:   {}".format(collapseNode))
-        print("[ExplodeGeometry] Center Pivot:     {}".format(centerPivot))
-        print("[ExplodeGeometry] Delete Original:  {}".format(deleteOriginal))
-        print("[ExplodeGeometry] Selected objects: {}".format(len(rt.selection)))
+        # Show all messages when debugging is enabled, otherwise only let
+        # warnings and critical messages through to the Listener.
+        logger.setLevel(logging.DEBUG if self.show_debug_checkbox.isChecked() else logging.WARNING)
+
+        logger.debug("--- Explode triggered ---")
+        logger.debug("Mode:            %s", mode)
+        logger.debug("Add Shell:        %s (offset=%s)", addShell, shell_amount)
+        logger.debug("Add Edit Mesh:    %s", addEditMesh)
+        logger.debug("Collapse Stack:   %s", collapseNode)
+        logger.debug("Center Pivot:     %s", centerPivot)
+        logger.debug("Delete Original:  %s", deleteOriginal)
+        logger.debug("Selected objects: %s", len(rt.selection))
 
         if len(rt.selection) <= 0:
             msg = "Nothing selected. Please select a node to explode."
-            print("[ExplodeGeometry] ERROR: {}".format(msg))
+            logger.error(msg)
             self.show_alert(msg)
         else:
             self.progress_panel.setVisible(True)
@@ -224,9 +247,9 @@ class Form(QtWidgets.QWidget, Ui_Form):
                 if self.trimesh_option.isChecked():
                     transformation_set = list(rt.selection)
                     self.lbl_tot_node.setText(str(len(transformation_set)))
-                    print("[ExplodeGeometry] [TriMesh] Processing {} object(s)".format(len(transformation_set)))
+                    logger.debug("[TriMesh] Processing %s object(s)", len(transformation_set))
                     for i, n in enumerate(transformation_set, 1):
-                        print("[ExplodeGeometry] [TriMesh] Object {}/{}: '{}'".format(i, len(transformation_set), n.name))
+                        logger.debug("[TriMesh] Object %s/%s: '%s'", i, len(transformation_set), n.name)
                         self.lbl_node_name.setText(n.name)
                         self.lbl_curr_node.setText(str(i))
                         QtWidgets.QApplication.processEvents()
@@ -234,15 +257,15 @@ class Form(QtWidgets.QWidget, Ui_Form):
                                                   addEditMesh, collapseNode,
                                                   centerPivot, on_progress=_prog)
                         if deleteOriginal:
-                            print("[ExplodeGeometry] [TriMesh] Deleting original '{}'".format(n.name))
+                            logger.debug("[TriMesh] Deleting original '%s'", n.name)
                             rt.delete(n)
 
                 if self.mnmesh_option.isChecked():
                     transformation_set = list(rt.selection)
                     self.lbl_tot_node.setText(str(len(transformation_set)))
-                    print("[ExplodeGeometry] [MNMesh] Processing {} object(s)".format(len(transformation_set)))
+                    logger.debug("[MNMesh] Processing %s object(s)", len(transformation_set))
                     for i, node in enumerate(transformation_set, 1):
-                        print("[ExplodeGeometry] [MNMesh] Object {}/{}: '{}'".format(i, len(transformation_set), node.name))
+                        logger.debug("[MNMesh] Object %s/%s: '%s'", i, len(transformation_set), node.name)
                         self.lbl_node_name.setText(node.name)
                         self.lbl_curr_node.setText(str(i))
                         QtWidgets.QApplication.processEvents()
@@ -250,10 +273,10 @@ class Form(QtWidgets.QWidget, Ui_Form):
                                                 addEditMesh, collapseNode,
                                                 centerPivot, on_progress=_prog)
                         if deleteOriginal:
-                            print("[ExplodeGeometry] [MNMesh] Deleting original '{}'".format(node.name))
+                            logger.debug("[MNMesh] Deleting original '%s'", node.name)
                             rt.delete(node)
 
-            print("[ExplodeGeometry] Done. Redrawing views.")
+            logger.debug("Done. Redrawing views.")
             rt.redrawViews()
             self.progress_panel.setVisible(False)
             self.progress_bar.setValue(0)
@@ -277,10 +300,10 @@ def _random_wire_color():
 
 
 def convert_to_triangle_faces(node, addShell, shell_amount, addEditMesh, collapseNode, centerPivot, on_progress=None):
-    print("[ExplodeGeometry] [TriMesh] Converting '{}' to mesh...".format(node.name))
+    logger.debug("[TriMesh] Converting '%s' to mesh...", node.name)
     rt.convertToMesh(node)
     num_faces = rt.getNumFaces(node)
-    print("[ExplodeGeometry] [TriMesh] '{}' has {} face(s) to explode".format(node.name, num_faces))
+    logger.debug("[TriMesh] '%s' has %s face(s) to explode", node.name, num_faces)
     if on_progress:
         on_progress(0, num_faces)
     for face_idx in range(1, num_faces + 1):
@@ -288,67 +311,67 @@ def convert_to_triangle_faces(node, addShell, shell_amount, addEditMesh, collaps
         v1 = rt.getVert(node, int(face.x))
         v2 = rt.getVert(node, int(face.y))
         v3 = rt.getVert(node, int(face.z))
-        print("[ExplodeGeometry] [TriMesh] Face {}/{}: verts=({:.2f},{:.2f},{:.2f}) ({:.2f},{:.2f},{:.2f}) ({:.2f},{:.2f},{:.2f})".format(
-            face_idx, num_faces, v1.x, v1.y, v1.z, v2.x, v2.y, v2.z, v3.x, v3.y, v3.z))
+        logger.debug("[TriMesh] Face %s/%s: verts=(%.2f,%.2f,%.2f) (%.2f,%.2f,%.2f) (%.2f,%.2f,%.2f)",
+                     face_idx, num_faces, v1.x, v1.y, v1.z, v2.x, v2.y, v2.z, v3.x, v3.y, v3.z)
 
         new_node = rt.mesh(vertices=rt.Array(v1, v2, v3),
                            faces=rt.Array(rt.Point3(1, 2, 3)))
         rt.update(new_node)
         new_node.wireColor = _random_wire_color()
-        print("[ExplodeGeometry] [TriMesh] Created piece '{}' for face {}".format(new_node.name, face_idx))
+        logger.debug("[TriMesh] Created piece '%s' for face %s", new_node.name, face_idx)
 
         applySettings(new_node, addShell, shell_amount,
                       addEditMesh, collapseNode, centerPivot)
         if on_progress:
             on_progress(face_idx, num_faces)
-    print("[ExplodeGeometry] [TriMesh] Finished exploding '{}'".format(node.name))
+    logger.debug("[TriMesh] Finished exploding '%s'", node.name)
 
 
 def convert_to_mnmesh_faces(node, addShell, shell_amount, addEditMesh, collapseNode, centerPivot, on_progress=None):
-    print("[ExplodeGeometry] [Poly] Converting '{}' to poly...".format(node.name))
+    logger.debug("[Poly] Converting '%s' to poly...", node.name)
     rt.convertToPoly(node)
     num_faces = rt.polyop.getNumFaces(node)
-    print("[ExplodeGeometry] [Poly] '{}' has {} face(s) to explode".format(node.name, num_faces))
+    logger.debug("[Poly] '%s' has %s face(s) to explode", node.name, num_faces)
 
     if on_progress:
         on_progress(0, num_faces)
     _processed = 0
     for face_idx in range(num_faces, 0, -1):
-        print("[ExplodeGeometry] [Poly] Detaching face {}/{}".format(face_idx, num_faces))
+        logger.debug("[Poly] Detaching face %s/%s", face_idx, num_faces)
         rt.polyop.detachFaces(node, rt.Array(face_idx), asNode=True)
         new_node = rt.objects[-1]
         if new_node is None:
-            print("[ExplodeGeometry] [Poly] WARNING: Could not find detached node for face {}".format(face_idx))
+            logger.warning("[Poly] Could not find detached node for face %s", face_idx)
             continue
         new_node.wireColor = _random_wire_color()
-        print("[ExplodeGeometry] [Poly] Created piece '{}' for face {}".format(new_node.name, face_idx))
+        logger.debug("[Poly] Created piece '%s' for face %s", new_node.name, face_idx)
         applySettings(new_node, addShell, shell_amount, addEditMesh, collapseNode, centerPivot)
         _processed += 1
         if on_progress:
             on_progress(_processed, num_faces)
-    print("[ExplodeGeometry] [Poly] Finished exploding '{}'".format(node.name))
+    logger.debug("[Poly] Finished exploding '%s'", node.name)
 
 
 def applySettings(n, addShell, shell_amount, addEditMesh, collapseNode, centerPivot):
-    print("[ExplodeGeometry] applySettings on '{}': shell={} (amt={}) editMesh={} collapse={} centerPivot={}".format(
-        n.name, addShell, shell_amount, addEditMesh, collapseNode, centerPivot))
+    logger.debug("applySettings on '%s': shell=%s (amt=%s) editMesh=%s collapse=%s centerPivot=%s",
+                 n.name, addShell, shell_amount, addEditMesh, collapseNode, centerPivot)
     if addShell:
-        print("[ExplodeGeometry] Adding Shell modifier (outerAmount={})".format(shell_amount))
+        logger.debug("Adding Shell modifier (outerAmount=%s)", shell_amount)
         mod = rt.Shell()
         mod.outerAmount = shell_amount
         rt.addModifier(n, mod)
 
     if addEditMesh:
-        print("[ExplodeGeometry] Adding Edit Mesh modifier")
+        logger.debug("Adding Edit Mesh modifier")
         mod = rt.Edit_Mesh()
         rt.addModifier(n, mod)
 
     if collapseNode:
-        print("[ExplodeGeometry] Collapsing modifier stack")
+        logger.debug("Collapsing modifier stack")
         rt.maxOps.collapseNode(n, True)
 
     if centerPivot:
-        print("[ExplodeGeometry] Centering pivot")
+        logger.debug("Centering pivot")
         rt.centerPivot(n)
 
 
