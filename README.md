@@ -24,6 +24,23 @@ Collapse Modifier Stack -- will collapse the stack down to become an editable me
 Center Pivot -- will center the pivot on each resulting face.
 Delete Original -- will remove each original node that was used to create the new faces.
 
+Running the Sample
+===============
+This sample can be run in two ways:
+
+1. Load the bundle using 3ds Max AppBundle loading.
+   - Create a bundle folder structure similar to the docs, for example:
+     - `C:\Test\ExplodeGeometry\PackageContents.xml`
+     - `C:\Test\ExplodeGeometry\Post-Start-Up_Scripts\ADNGeometryExplodeSetupMenu.ms`
+   - Set `ADSK_APPLICATION_PLUGINS` to the root folder containing your bundle, for example `C:\Test\`.
+   - Launch 3ds Max and confirm the script loads properly.
+   - Once loaded, use the provided UI/menu action to open the Explode Geometry dialog.
+
+2. Load and execute the Python sample script.
+   - Open `Python/explode_geometry.py` in the 3ds Max scripting editor.
+   - Execute the script from the editor to run the Python version of the Explode Geometry sample.
+   - This script uses `pymxs` and is compatible with 3ds Max 2022 and later.
+
 App Store
 ==============
 From 3ds Max 2025 and up, adding menu entries to the main menu bar utilizes the use of GUID to uniquely identify menu entries. As such, we recommend the use of `CC18FEFC-E8A4-4B16-B519-664E8FA3B549` as App Store menu entry for 2025 and later versions for uniformity.
