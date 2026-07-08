@@ -31,7 +31,11 @@ function getAppStoreMenuItem menuMgr =
 		-- Id of "Help" menu in main menu bar can be found in Menu editor -> right click on menu item -> copy item id
 		local helpMenuId = "cee8f758-2199-411b-81e7-d3ff4a80d143"
 		appStoreSubmenu = mainMenuBar.CreateSubMenu  appstoreMenuId "App Store" beforeId:helpMenuId
-	)
+	) else (
+        -- If the App Store submenu already exists, we need to get its subMenu property to access the actual submenu 
+        -- where we can add our menu items. This is necessary because the `getMenuItemById` method returns the menu item itself, not the submenu.     
+        appStoreSubmenu = appStoreSubmenu.subMenu
+    )
 
 	return appStoreSubmenu
 )
